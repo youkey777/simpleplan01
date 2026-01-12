@@ -215,7 +215,7 @@
                 <button onclick="showPage('gallery')" class="hover:text-accent transition-all">Atelier</button>
                 <span class="absolute -top-5 left-1/2 -translate-x-1/2 text-accent/40 text-sm font-en italic">✧</span>
             </div>
-            <a href="#"
+            <a href="#online-shop"
                 class="bg-stone-800 text-white px-10 py-3 text-[9px] tracking-[0.3em] font-bold hover:bg-accent transition-all shadow-xl rounded-sm">SHOP
                 ONLINE</a>
         </nav>
@@ -449,7 +449,7 @@
         </section>
 
         <!-- News & Topics -->
-        <section class="py-48 bg-[#FDFCFB] relative overflow-hidden">
+        <section id="news" class="py-48 bg-[#FDFCFB] relative overflow-hidden">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col lg:flex-row-reverse items-center gap-24">
                     <div class="w-full lg:w-1/2 grid grid-cols-2 gap-6 reveal">
@@ -462,14 +462,20 @@
                         <div class="space-y-6 mt-16">
                             <div class="collage-frame"><img src="./craft_hands.png" class="w-full h-full object-cover">
                             </div>
-                            <div
-                                class="bg-accent/5 p-12 flex flex-col justify-center aspect-square border-[0.5px] border-accent/20 relative overflow-hidden">
-                                <h4
-                                    class="font-serif text-2xl font-bold mb-4 font-en uppercase italic tracking-widest text-accent">
-                                    Journal</h4>
-                                <p
-                                    class="text-[9px] leading-loose opacity-50 font-bold uppercase tracking-[0.3em] italic">
-                                    Elegance in the daily life.</p>
+                            <!-- Image Added: Cafe Moment with Overlay -->
+                            <div class="collage-frame relative group">
+                                <img src="./cafe_moment.png"
+                                    class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-110"
+                                    alt="Cafe Moment">
+                                <div
+                                    class="absolute inset-0 bg-accent/30 flex flex-col justify-center items-center p-8 text-center transition-all duration-500 group-hover:bg-accent/40 backdrop-blur-[1px]">
+                                    <h4
+                                        class="font-serif text-2xl font-bold mb-4 font-en uppercase italic tracking-widest text-white drop-shadow-md">
+                                        Journal</h4>
+                                    <p
+                                        class="text-[9px] leading-loose text-white font-bold uppercase tracking-[0.3em] drop-shadow-md italic">
+                                        Elegance in the daily life.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -514,7 +520,7 @@
         </section>
 
         <!-- Online Shop -->
-        <section class="py-48 bg-[#2A2624] overflow-hidden relative">
+        <section id="online-shop" class="py-48 bg-[#2A2624] overflow-hidden relative">
             <div
                 class="absolute top-1/2 left-0 -translate-y-1/2 text-[20vw] font-en font-bold italic text-white/[0.02] select-none whitespace-nowrap">
                 Exquisite Delivery</div>
@@ -537,8 +543,9 @@
                             class="text-white text-3xl font-serif font-bold mb-6 font-en italic uppercase tracking-wider">
                             Torte No Sanpo</h3>
                         <p class="text-stone-400 text-sm mb-12 leading-loose">心ほどける甘いひととき。日常に小さな彩りを添えます。</p>
+                        <!-- Button Updated: Solid by default -->
                         <a href="https://torte-no-sanpo.com/" target="_blank"
-                            class="inline-block border border-accent/40 text-accent px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-accent hover:text-white transition-all rounded-sm">Visit
+                            class="inline-block bg-accent text-white px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-white hover:text-accent transition-all rounded-sm shadow-lg border border-accent">Visit
                             Shop</a>
                     </div>
                     <div
@@ -552,8 +559,9 @@
                             class="text-white text-3xl font-serif font-bold mb-6 font-en italic uppercase tracking-wider">
                             Prugna Pane</h3>
                         <p class="text-stone-400 text-sm mb-12 leading-loose">厳選素材の力強さを。冷凍配送でお届けします。</p>
+                        <!-- Button Updated: Solid by default -->
                         <a href="https://prugna-pane.com/" target="_blank"
-                            class="inline-block border border-accent/40 text-accent px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-accent hover:text-white transition-all rounded-sm">Visit
+                            class="inline-block bg-accent text-white px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-white hover:text-accent transition-all rounded-sm shadow-lg border border-accent">Visit
                             Shop</a>
                     </div>
                 </div>
