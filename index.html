@@ -476,7 +476,7 @@
             <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
                 <div
-                    class="col-span-12 md:col-span-3 reveal flex flex-col items-center md:items-start order-2 md:order-1 mt-12 md:mt-0">
+                    class="col-span-12 md:col-span-3 reveal flex flex-col items-center md:items-start order-2 md:order-1 mt-12 md:mt-0 md:pl-16">
                     <div class="v-text font-serif text-2xl md:text-3xl leading-relaxed text-accent font-bold">
                         本物の香りは、<br>
                         日常を、<br>
@@ -489,10 +489,10 @@
                     </div>
                 </div>
 
-                <div class="col-span-12 md:col-span-9 relative h-[65vh] md:h-[85vh] order-1 md:order-2">
+                <div class="col-span-12 md:col-span-9 relative h-[55vh] md:h-[85vh] order-1 md:order-2">
                     <!-- メイン画像 -->
                     <div
-                        class="absolute top-[10%] left-[5%] w-9/12 h-4/5 overflow-hidden reveal shadow-2xl border-[12px] border-white/80">
+                        class="absolute top-[10%] left-[12%] md:left-[5%] w-8/12 md:w-9/12 h-3/5 md:h-4/5 overflow-hidden reveal shadow-2xl border-[8px] md:border-[12px] border-white/80">
                         <img src="./hero_main.png" class="w-full h-full object-cover" alt="Artisan Wheat">
                         <!-- TAPE ACCENT -->
                         <div class="tape-accent top-[-10px] left-[30%]"></div>
@@ -501,7 +501,7 @@
 
                     <!-- コラージュ 1 (Pizza with Decorations) -->
                     <div
-                        class="absolute bottom-[2%] right-0 w-5/12 aspect-square collage-frame reveal delay-300 -rotate-2">
+                        class="absolute bottom-[10%] md:bottom-[2%] right-[-5%] md:right-0 w-6/12 md:w-5/12 aspect-square collage-frame reveal delay-300 -rotate-2">
                         <img src="./pizza.png" class="w-full h-full object-cover" alt="Artisan Pizza">
                         <!-- FLOATING TAG WITH CONNECTOR -->
                         <div class="tag-dot top-[20%] left-[20%]"></div>
@@ -520,7 +520,7 @@
 
                     <!-- コラージュ 2 (Cafe with Ruler) -->
                     <div
-                        class="absolute top-[-2%] left-[-2%] w-4/12 aspect-[3/4] collage-frame reveal delay-500 rotate-3">
+                        class="absolute top-[-2%] left-[-5%] md:left-[-2%] w-5/12 md:w-4/12 aspect-[3/4] collage-frame reveal delay-500 rotate-3">
                         <img src="./cafe_prugna.png" class="w-full h-full object-cover" alt="Cafe Prugna">
                         <!-- TAPE -->
                         <div class="tape-accent top-[-15px] left-[10px] rotate-[5deg] opacity-70"></div>
@@ -592,8 +592,10 @@
                         <h2
                             class="text-5xl md:text-6xl font-serif font-extrabold mb-6 font-en italic uppercase tracking-tighter">
                             OUR BRAND</h2>
-                        <p class="font-en italic text-accent text-xl font-medium">Selected artisans and dining
-                            experiences we cultivate.</p>
+                        <p
+                            class="font-serif text-accent text-sm md:text-base font-medium tracking-widest text-[#B89F8E]">
+                            私たちが厳選し、大切に育む<br class="md:hidden">職人と食の体験。
+                        </p>
                     </div>
                     <div class="h-[1px] flex-grow bg-stone-200 mx-10 hidden md:block"></div>
                 </div>
@@ -674,7 +676,7 @@
         <section class="py-48 bg-white relative overflow-hidden z-20">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-                    <div class="relative min-h-[600px] reveal">
+                    <div class="relative min-h-[400px] md:min-h-[600px] reveal">
                         <div
                             class="absolute top-0 left-0 w-8/12 aspect-square overflow-hidden shadow-xl rotate-[-1.5deg] z-10 border-white border-[10px]">
                             <img src="./vegetable_field.png" class="w-full h-full object-cover"
@@ -744,6 +746,11 @@
             <div class="container mx-auto px-6">
                 <div class="flex flex-col lg:flex-row-reverse items-center gap-24">
                     <div class="w-full lg:w-1/2 grid grid-cols-2 gap-6 reveal">
+                        <!-- Mobile Title inserted here -->
+                        <h3
+                            class="col-span-2 lg:hidden font-en italic text-accent text-3xl mb-4 font-bold tracking-[0.1em] text-center">
+                            Latest Journal</h3>
+
                         <div class="space-y-6">
                             <div class="collage-frame relative">
                                 <img src="./journal_cafe.png" class="w-full h-full object-cover">
@@ -777,7 +784,9 @@
                     </div>
 
                     <div class="w-full lg:w-1/2 reveal delay-500">
-                        <h3 class="font-en italic text-accent text-2xl mb-10 font-bold tracking-[0.1em]">Latest Journal
+                        <h3
+                            class="hidden lg:block font-en italic text-accent text-2xl mb-10 font-bold tracking-[0.1em]">
+                            Latest Journal
                         </h3>
                         <div class="space-y-14">
                             <article class="group cursor-pointer">
