@@ -175,6 +175,153 @@
             letter-spacing: 0.5em;
             transform: translateY(-2px);
         }
+
+        /* Rich Editorial Design Additions */
+        .bg-graph-paper {
+            background-image:
+                linear-gradient(rgba(184, 159, 142, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(184, 159, 142, 0.15) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .bg-logbook {
+            background-image: radial-gradient(rgba(184, 159, 142, 0.3) 1px, transparent 1px);
+            background-size: 10px 10px;
+        }
+
+        .bg-blur-glass {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+        }
+
+        .ruler-scale {
+            position: absolute;
+            display: flex;
+            align-items: flex-end;
+            opacity: 0.6;
+            color: var(--color-accent);
+        }
+
+        .ruler-scale span {
+            background: currentColor;
+            display: block;
+        }
+
+        .tag-connector {
+            position: absolute;
+            background: var(--color-accent);
+            opacity: 0.5;
+            z-index: 30;
+        }
+
+        .tag-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            z-index: 31;
+        }
+
+        .floating-tag {
+            position: absolute;
+            background: white;
+            padding: 4px 8px;
+            font-size: 9px;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.1em;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--color-accent);
+            z-index: 32;
+            line-height: 1.2;
+        }
+
+        .corner-bracket {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-color: var(--color-accent);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .corner-bracket.tl {
+            top: -5px;
+            left: -5px;
+            border-top: 1px solid;
+            border-left: 1px solid;
+        }
+
+        .corner-bracket.br {
+            bottom: -5px;
+            right: -5px;
+            border-bottom: 1px solid;
+            border-right: 1px solid;
+        }
+
+        .barcode {
+            display: flex;
+            height: 20px;
+            gap: 2px;
+            opacity: 0.4;
+        }
+
+        .barcode span {
+            background: currentColor;
+            width: 1px;
+            display: block;
+            height: 100%;
+        }
+
+        .hero-text-pattern {
+            position: absolute;
+            overflow: hidden;
+            white-space: nowrap;
+            color: var(--color-accent);
+            opacity: 0.03;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 10rem;
+            line-height: 0.8;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .stamp-mark {
+            border: 1px solid currentColor;
+            padding: 2px 6px;
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .stamp-circle {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed currentColor;
+            font-size: 8px;
+            transform: rotate(-15deg);
+        }
+
+        .tape-accent {
+            position: absolute;
+            width: 80px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(-25deg);
+            z-index: 25;
+            backdrop-filter: blur(2px);
+            border-left: 1px dotted rgba(0, 0, 0, 0.1);
+            border-right: 1px dotted rgba(0, 0, 0, 0.1);
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
     </style>
 </head>
 
@@ -248,25 +395,57 @@
                 </div>
 
                 <div class="col-span-12 md:col-span-9 relative h-[65vh] md:h-[85vh] order-1 md:order-2">
+                    <!-- 背景テキスト (Layer Fixed: Behind Images) -->
+                    <div
+                        class="absolute top-1/2 left-0 font-en text-[13vw] text-accent opacity-[0.06] -rotate-12 pointer-events-none font-bold italic tracking-tighter select-none">
+                        Sophistication</div>
+
                     <!-- メイン画像 -->
                     <div
                         class="absolute top-[10%] left-[5%] w-9/12 h-4/5 overflow-hidden reveal shadow-2xl border-[12px] border-white/80">
                         <img src="./hero_main.png" class="w-full h-full object-cover" alt="Artisan Wheat">
+                        <!-- TAPE ACCENT -->
+                        <div class="tape-accent top-[-10px] left-[30%]"></div>
+                        <div class="tape-accent bottom-[-10px] right-[20%] rotate-[15deg]"></div>
                     </div>
-                    <!-- コラージュ 1 -->
+
+                    <!-- コラージュ 1 (Pizza with Decorations) -->
                     <div
                         class="absolute bottom-[2%] right-0 w-5/12 aspect-square collage-frame reveal delay-300 -rotate-2">
                         <img src="./pizza.png" class="w-full h-full object-cover" alt="Artisan Pizza">
+                        <!-- FLOATING TAG WITH CONNECTOR -->
+                        <div class="tag-dot top-[20%] left-[20%]"></div>
+                        <div class="tag-connector w-[40px] h-[1px] top-[20%] left-[20%] rotate-[-150deg] origin-left">
+                        </div>
+                        <div class="floating-tag top-[-30px] left-[-30px]">
+                            <span class="block text-[7px] text-stone-400 tracking-wider">INGREDIENT</span>
+                            WHEAT TYPE-00<br><span class="text-[7px]">Ref. 8421b</span>
+                        </div>
+                        <!-- Corner Bracket -->
+                        <div class="corner-bracket br"></div>
+                        <!-- Fig Caption -->
+                        <div class="absolute -bottom-6 left-0 text-[8px] tracking-[0.2em] opacity-60 font-en">FIG. 02 -
+                            PIZZA MARGHERITA</div>
                     </div>
-                    <!-- コラージュ 2 -->
+
+                    <!-- コラージュ 2 (Cafe with Ruler) -->
                     <div
                         class="absolute top-[-2%] left-[-2%] w-4/12 aspect-[3/4] collage-frame reveal delay-500 rotate-3">
                         <img src="./cafe_prugna.png" class="w-full h-full object-cover" alt="Cafe Prugna">
+                        <!-- TAPE -->
+                        <div class="tape-accent top-[-15px] left-[10px] rotate-[5deg] opacity-70"></div>
+                        <!-- Ruler Side -->
+                        <div class="ruler-scale flex-col right-[-10px] top-4 gap-1">
+                            <span class="w-[4px] h-[1px]"></span><span class="w-[4px] h-[1px]"></span><span
+                                class="w-[8px] h-[1px]"></span>
+                            <span class="w-[4px] h-[1px]"></span><span class="w-[4px] h-[1px]"></span>
+                        </div>
                     </div>
-                    <!-- 背景テキスト -->
-                    <div
-                        class="absolute top-1/2 left-0 font-en text-[13vw] text-accent opacity-[0.06] -rotate-12 pointer-events-none font-bold italic tracking-tighter">
-                        Sophistication</div>
+
+                    <!-- Extra Decorative Stamp -->
+                    <div class="stamp-mark stamp-circle absolute bottom-[15%] left-[20%] reveal delay-700">
+                        <div>PREMIUM<br>QUALITY<br>---</div>
+                    </div>
                 </div>
             </div>
             <div class="absolute inset-0 z-0 opacity-[0.04]"
@@ -275,7 +454,7 @@
         </section>
 
         <!-- Message -->
-        <section class="py-48 relative border-y border-stone-200 overflow-hidden bg-white/30 backdrop-blur-sm">
+        <section class="py-48 relative border-y border-stone-200 overflow-hidden bg-blur-glass">
             <div class="absolute top-0 right-0 w-1/4 h-full bg-accent/5 -z-10"></div>
             <div class="container mx-auto px-6 max-w-5xl relative z-10 text-center md:text-left">
                 <div class="flex flex-col md:flex-row gap-24 items-center">
@@ -305,8 +484,17 @@
         </section>
 
         <!-- OUR BRAND: 4列散布グリッド -->
-        <section class="py-48 bg-stone-100/40 relative">
-            <div class="container mx-auto px-6">
+        <section class="py-48 bg-graph-paper relative overflow-hidden">
+            <div class="hero-text-pattern top-20 right-[-10%] opacity-[0.05] rotate-90 origin-right">GRID_SYSTEM_V.2.0
+            </div>
+            <!-- Technical Lines SVG -->
+            <svg class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20 z-0" viewBox="0 0 100 100"
+                preserveAspectRatio="none">
+                <line x1="10" y1="0" x2="10" y2="100" stroke="currentColor" stroke-width="0.1" stroke-dasharray="2 2" />
+                <line x1="90" y1="0" x2="90" y2="100" stroke="currentColor" stroke-width="0.1" stroke-dasharray="2 2" />
+                <line x1="0" y1="50" x2="100" y2="50" stroke="currentColor" stroke-width="0.1" />
+            </svg>
+            <div class="container mx-auto px-6 relative z-10">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8 reveal">
                     <div>
                         <h2
@@ -450,12 +638,22 @@
         </section>
 
         <!-- News & Topics -->
-        <section id="news" class="py-48 bg-[#FDFCFB] relative overflow-hidden">
+        <section id="news" class="py-48 bg-logbook relative overflow-hidden">
+            <!-- Technical Data Decoration -->
+            <div class="absolute top-10 left-10 font-en text-[9px] tracking-[0.2em] opacity-30 text-accent">
+                LOG_ID: 8842<br>SEC: JOURNAL<br>STATUS: ACTIVE
+            </div>
+            <div class="hero-text-pattern bottom-0 left-0 text-[12vw] opacity-[0.02]">Timeless</div>
             <div class="container mx-auto px-6">
                 <div class="flex flex-col lg:flex-row-reverse items-center gap-24">
                     <div class="w-full lg:w-1/2 grid grid-cols-2 gap-6 reveal">
                         <div class="space-y-6">
-                            <div class="collage-frame"><img src="./journal_cafe.png" class="w-full h-full object-cover">
+                            <div class="collage-frame relative">
+                                <img src="./journal_cafe.png" class="w-full h-full object-cover">
+                                <div class="barcode absolute bottom-2 right-2 text-stone-300">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
                             </div>
                             <div class="collage-frame"><img src="./journal_fig.png" class="w-full h-full object-cover">
                             </div>
@@ -522,6 +720,10 @@
 
         <!-- Online Shop -->
         <section id="online-shop" class="py-48 bg-[#2A2624] overflow-hidden relative">
+            <!-- Technical Dashed Line -->
+            <div class="absolute inset-x-0 top-12 h-[1px] border-t border-dashed border-white/10"></div>
+            <div class="absolute inset-x-0 bottom-12 h-[1px] border-t border-dashed border-white/10"></div>
+
             <div
                 class="absolute top-1/2 left-0 -translate-y-1/2 text-[20vw] font-en font-bold italic text-white/[0.02] select-none whitespace-nowrap">
                 Exquisite Delivery</div>
