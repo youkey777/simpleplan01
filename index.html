@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社シンプルプラン | Artisan & Feminine Elegance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-text: #3A3532;
+            --color-bg: #FAF7F2; /* より柔らかいシェルピンクベージュ */
+            --color-accent: #B89F8E; /* 柔らかなロージーブラウン */
+            --color-soft: #F2ECE7;
+            --paper-texture: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            background-image: var(--paper-texture);
+            overflow-x: hidden;
+            line-height: 1.9;
+        }
+
+        h1, h2, h3, h4, .font-serif { font-family: 'Shippori Mincho', serif; }
+        .font-en { font-family: 'Cormorant Garamond', serif; }
+
+        .noise::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .bg-deco-svg {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.12;
+            z-index: 0;
+            filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.02));
+        }
+
+        .collage-frame {
+            padding: 10px;
+            background: white;
+            box-shadow: 10px 10px 30px rgba(184, 159, 142, 0.15); /* アクセントカラーを混ぜた淡い影 */
+            border: 1px solid #F5F0EB;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            border-radius: 2px;
+        }
+        .collage-frame:hover {
+            transform: scale(1.03) rotate(0deg) !important;
+            z-index: 20;
+            box-shadow: 15px 20px 40px rgba(184, 159, 142, 0.25);
+        }
+
+        .giant-type {
+            font-size: 16vw;
+            line-height: 0.7;
+            opacity: 0.04;
+            position: absolute;
+            font-weight: 800;
+            pointer-events: none;
+            z-index: -1;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            letter-spacing: -0.02em;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .v-text {
+            writing-mode: vertical-rl;
+            letter-spacing: 0.6em;
+        }
+
+        .seal-stamp {
+            border: 1.5px solid var(--color-accent);
+            border-radius: 50%;
+            color: var(--color-accent);
+            padding: 24px;
+            text-align: center;
+            font-size: 9px;
+            font-weight: 500;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            box-shadow: 2px 4px 10px rgba(0,0,0,0.03);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .path-deco {
+            position: absolute;
+            width: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--color-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--color-accent); opacity: 0.5; }
+
+        .page { display: none; }
+        .page.active { display: block; }
+        
+        /* ボタンのニュアンス変更 */
+        .btn-elegant {
+            background-color: var(--color-text);
+            color: white;
+            padding: 1.25rem 3rem;
+            font-size: 10px;
+            letter-spacing: 0.4em;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .btn-elegant:hover {
+            background-color: var(--color-accent);
+            letter-spacing: 0.5em;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="noise text-stone-800">
+
+    <!-- 背景の装飾イラスト（より細く繊細に） -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="giant-type top-[15%] left-[-2%]">Cherish</div>
+        <div class="giant-type bottom-[15%] right-[-2%]">Moments</div>
+        <svg class="bg-deco-svg w-64 h-64 top-40 -left-10 text-accent opacity-20" viewBox="0 0 100 100">
+            <path fill="none" stroke="currentColor" stroke-width="0.1" d="M30,90 Q40,50 60,10 M40,20 Q60,40 70,80 M20,40 L80,45" />
+        </svg>
+        <svg class="bg-deco-svg w-96 h-96 -bottom-20 right-10 text-accent opacity-10" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="0.05" stroke-dasharray="1 3" />
+        </svg>
+    </div>
+
+    <header class="fixed top-0 left-0 w-full z-50 px-6 py-8 md:px-12 flex justify-between items-center transition-all duration-700" id="main-header">
+        <div class="flex flex-col cursor-pointer group" onclick="showPage('top')">
+            <h1 class="text-3xl md:text-4xl font-serif font-extrabold tracking-[0.15em] leading-none group-hover:text-accent transition-colors">Simple Plan</h1>
+            <div class="flex items-center gap-3 mt-2">
+                <span class="h-[1px] w-8 bg-accent opacity-60"></span>
+                <span class="text-[9px] tracking-[0.5em] font-en uppercase opacity-60 italic">Artisan & Feminine</span>
+            </div>
+        </div>
+        
+        <nav class="hidden xl:flex items-center gap-14">
+            <div class="flex gap-14 text-[11px] tracking-[0.4em] font-medium uppercase relative">
+                <button onclick="showPage('about')" class="hover:text-accent transition-all">Philosophy</button>
+                <button onclick="showPage('brands')" class="hover:text-accent transition-all">Collection</button>
+                <button onclick="showPage('news')" class="hover:text-accent transition-all">Journal</button>
+                <button onclick="showPage('gallery')" class="hover:text-accent transition-all">Atelier</button>
+                <span class="absolute -top-5 left-1/2 -translate-x-1/2 text-accent/40 text-sm font-en italic">✧</span>
+            </div>
+            <a href="#" class="bg-stone-800 text-white px-10 py-3 text-[9px] tracking-[0.3em] font-bold hover:bg-accent transition-all shadow-xl rounded-sm">SHOP ONLINE</a>
+        </nav>
+
+        <button class="xl:hidden flex flex-col gap-2">
+            <span class="w-8 h-[1px] bg-stone-800"></span>
+            <span class="w-5 h-[1px] bg-stone-800 self-end"></span>
+        </button>
+    </header>
+
+    <!-- TOP PAGE -->
+    <main id="page-top" class="page active relative">
+
+        <!-- Hero: 復元されたリズム + フェミニンなニュアンス -->
+        <section class="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                
+                <div class="col-span-12 md:col-span-3 reveal flex flex-col items-center md:items-start order-2 md:order-1 mt-12 md:mt-0">
+                    <div class="v-text font-serif text-2xl md:text-3xl leading-relaxed text-accent font-bold">
+                        本物の香りは、<br>
+                        日常を、<br>
+                        しなやかに彩る。
+                    </div>
+                    <div class="mt-16 seal-stamp rotate-[15deg]">
+                        <span class="italic font-en">est.</span>
+                        <span class="text-lg font-en font-bold">20XX</span>
+                        <span class="tracking-[0.2em]">QUALITY</span>
+                    </div>
+                </div>
+
+                <div class="col-span-12 md:col-span-9 relative h-[65vh] md:h-[85vh] order-1 md:order-2">
+                    <!-- メイン画像 -->
+                    <div class="absolute top-[10%] left-[5%] w-9/12 h-4/5 overflow-hidden reveal shadow-2xl border-[12px] border-white/80">
+                        <img src="./hero_main.png" class="w-full h-full object-cover" alt="Artisan Wheat">
+                    </div>
+                    <!-- コラージュ 1 -->
+                    <div class="absolute bottom-[2%] right-0 w-5/12 aspect-square collage-frame reveal delay-300 -rotate-2">
+                        <img src="./pizza.png" class="w-full h-full object-cover" alt="Artisan Pizza">
+                    </div>
+                    <!-- コラージュ 2 -->
+                    <div class="absolute top-[-2%] left-[-2%] w-4/12 aspect-[3/4] collage-frame reveal delay-500 rotate-3">
+                        <img src="./cafe_prugna.png" class="w-full h-full object-cover" alt="Cafe Prugna">
+                    </div>
+                    <!-- 背景テキスト -->
+                    <div class="absolute top-1/2 left-0 font-en text-[13vw] text-accent opacity-[0.06] -rotate-12 pointer-events-none font-bold italic tracking-tighter">Sophistication</div>
+                </div>
+            </div>
+            <div class="absolute inset-0 z-0 opacity-[0.04]" style="background-image: radial-gradient(#B89F8E 1.5px, transparent 1.5px); background-size: 40px 40px;"></div>
+        </section>
+
+        <!-- Message -->
+        <section class="py-48 relative border-y border-stone-200 overflow-hidden bg-white/30 backdrop-blur-sm">
+            <div class="absolute top-0 right-0 w-1/4 h-full bg-accent/5 -z-10"></div>
+            <div class="container mx-auto px-6 max-w-5xl relative z-10 text-center md:text-left">
+                <div class="flex flex-col md:flex-row gap-24 items-center">
+                    <div class="w-full md:w-1/2 reveal">
+                        <div class="flex items-center justify-center md:justify-start gap-4 mb-10">
+                            <span class="w-10 h-[1px] bg-accent"></span>
+                            <span class="font-en italic text-accent text-xl font-bold tracking-[0.2em]">Philosophy</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-serif font-extrabold leading-[1.4] mb-12">
+                            情熱が描く、<br><span class="text-accent italic">美しい余白の物語。</span>
+                        </h2>
+                        <p class="text-lg leading-[2.6] font-serif font-medium opacity-80">
+                            パン作り、お料理作り、お店作り、会社作り。<br>
+                            一つひとつのプロセスを慈しみ、<br>
+                            私たちはこの場所から、心満たされる瞬間を追求します。
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2 relative reveal delay-300 px-4 md:px-0">
+                        <div class="collage-frame rotate-1 shadow-lg">
+                            <img src="./craft_hands.png" class="w-full h-full object-cover" alt="Craft Hands">
+                        </div>
+                        <div class="absolute -top-10 -right-6 text-accent font-en italic text-6xl opacity-20">✧</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR BRAND: 4列散布グリッド -->
+        <section class="py-48 bg-stone-100/40 relative">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8 reveal">
+                    <div>
+                        <h2 class="text-5xl md:text-6xl font-serif font-extrabold mb-6 font-en italic uppercase tracking-tighter">OUR BRAND</h2>
+                        <p class="font-en italic text-accent text-xl font-medium">Selected artisans and dining experiences we cultivate.</p>
+                    </div>
+                    <div class="h-[1px] flex-grow bg-stone-200 mx-10 hidden md:block"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-24 items-start">
+                    <!-- Brand 1 -->
+                    <div class="group reveal relative">
+                        <div class="collage-frame -rotate-3 group-hover:rotate-0 transition-transform">
+                            <div class="aspect-[4/5] overflow-hidden">
+                                <img src="./cafe_prugna.png" class="w-full h-full object-cover transition-transform duration-[2.5s] group-hover:scale-110">
+                            </div>
+                        </div>
+                        <div class="mt-8 px-2">
+                            <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">CAFÉ & BAKERY</div>
+                            <h3 class="text-2xl font-serif font-bold mb-4 font-en italic uppercase tracking-wide">Prugna</h3>
+                            <p class="text-xs opacity-60 leading-relaxed">城陽の街に愛される、カフェとベーカリー。旬の恵みが、朝のテーブルを彩ります。</p>
+                        </div>
+                    </div>
+                    <!-- Brand 2 -->
+                    <div class="group reveal delay-200 lg:mt-24 relative">
+                        <div class="collage-frame rotate-2 group-hover:rotate-0 transition-transform mx-auto">
+                            <div class="aspect-[4/5] overflow-hidden">
+                                <img src="./pizza.png" class="w-full h-full object-cover transition-transform duration-[2.5s] group-hover:scale-110">
+                            </div>
+                        </div>
+                        <div class="mt-8 px-2 text-center">
+                            <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">PIZZERIA</div>
+                            <h3 class="text-2xl font-serif font-bold mb-4 font-en italic uppercase tracking-wide">IL FICO</h3>
+                            <p class="text-xs opacity-60 leading-relaxed">薪窯が奏でる、香ばしいイタリアの記憶。職人が一枚ずつ魂を込めて焼き上げます。</p>
+                        </div>
+                    </div>
+                    <!-- Brand 3 -->
+                    <div class="group reveal delay-400 relative">
+                        <div class="collage-frame -rotate-1 group-hover:rotate-0 transition-transform ml-auto">
+                            <div class="aspect-[4/5] overflow-hidden">
+                                <img src="./bread_assortment.png" class="w-full h-full object-cover transition-transform duration-[2.5s] group-hover:scale-110">
+                            </div>
+                        </div>
+                        <div class="mt-8 px-2 text-right">
+                            <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">BAKERY</div>
+                            <h3 class="text-2xl font-serif font-bold mb-4 font-en italic uppercase tracking-wide">Prugna Pane</h3>
+                            <p class="text-xs opacity-60 leading-relaxed">素材の力強さを引き出す、私たちの特別なパン。全国へその感動を届けます。</p>
+                        </div>
+                    </div>
+                    <!-- Brand 4 -->
+                    <div class="group reveal delay-500 lg:mt-16 relative">
+                        <div class="collage-frame rotate-3 group-hover:rotate-0 transition-transform">
+                            <div class="aspect-[4/5] overflow-hidden">
+                                <img src="./torte_gift.png" class="w-full h-full object-cover transition-transform duration-[2.5s] group-hover:scale-110">
+                            </div>
+                        </div>
+                        <div class="mt-8 px-2">
+                            <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">ONLINE GIFT</div>
+                            <h3 class="text-2xl font-serif font-bold mb-4 font-en italic uppercase tracking-wide">Torte No Sanpo</h3>
+                            <p class="text-xs opacity-60 leading-relaxed">心ほどける甘いひととき。城陽から届ける、心ほどけるギフトタルト。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- From JOYO -->
+        <section class="py-48 bg-white relative overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                    <div class="relative min-h-[600px] reveal">
+                        <div class="absolute top-0 left-0 w-8/12 aspect-square overflow-hidden shadow-xl rotate-[-1.5deg] z-10 border-white border-[10px]">
+                            <img src="./joyo_landscape.png" class="w-full h-full object-cover" alt="Artisan Joyo">
+                        </div>
+                        <div class="absolute bottom-0 right-0 w-7/12 aspect-[4/3] collage-frame rotate-[4deg] z-20">
+                            <img src="./ingredients.png" class="w-full h-full object-cover" alt="Ingredients">
+                            <div class="absolute bottom-4 right-4 bg-white/95 px-3 py-1 text-[8px] font-bold tracking-[0.3em] uppercase italic text-accent">Pure Origin</div>
+                        </div>
+                        <div class="absolute top-[10%] right-10 v-text font-serif italic text-accent text-3xl opacity-20 select-none">From JOYO City</div>
+                    </div>
+
+                    <div class="reveal delay-300">
+                        <span class="font-en italic text-accent text-2xl block mb-6 font-medium">Our Promise</span>
+                        <h2 class="text-4xl md:text-[3.5rem] font-serif font-extrabold mb-12 leading-[1.2]">目に見えない手間に、<br><span class="text-accent underline decoration-[0.5px] underline-offset-8 italic">魂を宿すということ。</span></h2>
+                        <div class="space-y-12">
+                            <div class="flex gap-10 group">
+                                <div class="w-14 h-14 border border-accent/20 rounded-full flex items-center justify-center text-accent font-en italic text-lg group-hover:bg-accent group-hover:text-white transition-all duration-700 shrink-0">01</div>
+                                <div class="flex-grow">
+                                    <h4 class="text-xl font-bold mb-3 font-serif tracking-wide">素材との対話</h4>
+                                    <p class="text-sm opacity-60 leading-loose">北海道産小麦、城陽の旬の食材。選りすぐりの素材を、熟練の職人が一つひとつ丁寧に。目に見えない手間こそが、美味しさの理由です。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-10 group">
+                                <div class="w-14 h-14 border border-accent/20 rounded-full flex items-center justify-center text-accent font-en italic text-lg group-hover:bg-accent group-hover:text-white transition-all duration-700 shrink-0">02</div>
+                                <div class="flex-grow">
+                                    <h4 class="text-xl font-bold mb-3 font-serif tracking-wide">地域との絆</h4>
+                                    <p class="text-sm opacity-60 leading-loose">京都・城陽から。この土地の恵みを受け、地域と共に歩む。私たちの店舗が、街の止まり木のような存在になれるよう願っています。</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-10 group">
+                                <div class="w-14 h-14 border border-accent/20 rounded-full flex items-center justify-center text-accent font-en italic text-lg group-hover:bg-accent group-hover:text-white transition-all duration-700 shrink-0">03</div>
+                                <div class="flex-grow">
+                                    <h4 class="text-xl font-bold mb-3 font-serif tracking-wide">法人・卸のご相談</h4>
+                                    <p class="text-sm opacity-60 leading-loose">地域の活性化、法人の皆様への卸販売、催事出店のご相談も承っております。より多くの方へ、シンプルプランの味をお届けするために。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News & Topics -->
+        <section class="py-48 bg-[#FDFCFB] relative overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-24">
+                    <div class="w-full lg:w-1/2 grid grid-cols-2 gap-6 reveal">
+                        <div class="space-y-6">
+                            <div class="collage-frame"><img src="./journal_cafe.png" class="w-full h-full object-cover"></div>
+                            <div class="collage-frame"><img src="./journal_fig.png" class="w-full h-full object-cover"></div>
+                        </div>
+                        <div class="space-y-6 mt-16">
+                            <div class="collage-frame"><img src="./craft_hands.png" class="w-full h-full object-cover"></div>
+                            <div class="bg-accent/5 p-12 flex flex-col justify-center aspect-square border-[0.5px] border-accent/20 relative overflow-hidden">
+                                <h4 class="font-serif text-2xl font-bold mb-4 font-en uppercase italic tracking-widest text-accent">Journal</h4>
+                                <p class="text-[9px] leading-loose opacity-50 font-bold uppercase tracking-[0.3em] italic">Elegance in the daily life.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full lg:w-1/2 reveal delay-500">
+                        <h3 class="font-en italic text-accent text-2xl mb-10 font-bold tracking-[0.1em]">Latest Journal</h3>
+                        <div class="space-y-14">
+                            <article class="group cursor-pointer">
+                                <time class="font-en text-stone-400 text-[10px] tracking-[0.4em] font-bold">2023.11.20</time>
+                                <h4 class="text-2xl font-serif font-bold mt-3 group-hover:text-accent transition-all leading-relaxed underline decoration-stone-200 decoration-[0.5px] underline-offset-[12px]">秋の収穫祭：城陽産いちじくの特別メニューが始まります。</h4>
+                            </article>
+                            <article class="group cursor-pointer">
+                                <time class="font-en text-stone-400 text-[10px] tracking-[0.4em] font-bold">2023.11.05</time>
+                                <h4 class="text-2xl font-serif font-bold mt-3 group-hover:text-accent transition-all leading-relaxed underline decoration-stone-200 decoration-[0.5px] underline-offset-[12px]">オンラインショップ「タルトのさんぽ」リニューアル。</h4>
+                            </article>
+                            <article class="group cursor-pointer">
+                                <time class="font-en text-stone-400 text-[10px] tracking-[0.4em] font-bold">2023.10.28</time>
+                                <h4 class="text-2xl font-serif font-bold mt-3 group-hover:text-accent transition-all leading-relaxed underline decoration-stone-200 decoration-[0.5px] underline-offset-[12px]">職人インタビュー：小麦と向き合う、終わりのない旅。</h4>
+                            </article>
+                        </div>
+                        <div class="mt-20">
+                            <button class="btn-elegant rounded-sm shadow-lg shadow-accent/10">VIEW ALL JOURNAL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <svg class="path-deco bottom-0 left-0 w-full h-40 text-accent/10" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                <path d="M0,80 Q250,20 500,80 T1000,80" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 8"/>
+            </svg>
+        </section>
+
+        <!-- Online Shop -->
+        <section class="py-48 bg-[#2A2624] overflow-hidden relative">
+            <div class="absolute top-1/2 left-0 -translate-y-1/2 text-[20vw] font-en font-bold italic text-white/[0.02] select-none whitespace-nowrap">Exquisite Delivery</div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl mx-auto text-center mb-24 reveal">
+                    <h2 class="text-white text-5xl md:text-7xl font-serif font-extrabold mb-10 uppercase italic tracking-tighter">Online Shop</h2>
+                    <p class="text-stone-400 font-serif text-lg md:text-xl leading-relaxed font-medium">職人の焼き立て、想いのこもった一皿を。<br>城陽のアトリエから、全国のご自宅へお届けします。</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+                    <div class="bg-white/[0.03] border border-white/10 p-12 reveal group hover:bg-white/[0.06] transition-all duration-1000">
+                        <div class="aspect-video collage-frame mb-10 -rotate-1 group-hover:rotate-0 transition-transform">
+                            <img src="./torte_gift.png" class="w-full h-full object-cover" alt="Torte No Sanpo">
+                        </div>
+                        <h3 class="text-white text-3xl font-serif font-bold mb-6 font-en italic uppercase tracking-wider">Torte No Sanpo</h3>
+                        <p class="text-stone-400 text-sm mb-12 leading-loose">心ほどける甘いひととき。日常に小さな彩りを添えます。</p>
+                        <a href="https://torte-no-sanpo.com/" target="_blank" class="inline-block border border-accent/40 text-accent px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-accent hover:text-white transition-all rounded-sm">Visit Shop</a>
+                    </div>
+                    <div class="bg-white/[0.03] border border-white/10 p-12 reveal delay-300 group hover:bg-white/[0.06] transition-all duration-1000 md:mt-16">
+                        <div class="aspect-video collage-frame mb-10 rotate-1 group-hover:rotate-0 transition-transform">
+                            <img src="./bread_assortment.png" class="w-full h-full object-cover" alt="Prugna Pane Online">
+                        </div>
+                        <h3 class="text-white text-3xl font-serif font-bold mb-6 font-en italic uppercase tracking-wider">Prugna Pane</h3>
+                        <p class="text-stone-400 text-sm mb-12 leading-loose">厳選素材の力強さを。冷凍配送でお届けします。</p>
+                        <a href="https://prugna-pane.com/" target="_blank" class="inline-block border border-accent/40 text-accent px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-accent hover:text-white transition-all rounded-sm">Visit Shop</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1C1A19] text-white/40 py-40 px-6 md:px-12 relative overflow-hidden">
+        <div class="container mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+                
+                <div class="lg:col-span-5">
+                    <h2 class="text-white text-4xl font-serif font-extrabold tracking-[0.2em] mb-12">Simple Plan</h2>
+                    <p class="text-sm leading-[2.6] max-w-sm mb-16 opacity-70 font-serif font-medium">
+                        京都府城陽市を中心に、食を通じた豊かなライフスタイルを提案。誠実なものづくりと、地域への深い愛から始まります。
+                    </p>
+                    <div class="flex gap-12 items-center text-white/60">
+                        <a href="#" class="text-[10px] tracking-[0.4em] font-bold uppercase hover:text-accent transition-all italic">Instagram</a>
+                        <a href="#" class="text-[10px] tracking-[0.4em] font-bold uppercase hover:text-accent transition-all italic">Facebook</a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-16 text-[11px] tracking-[0.4em] font-bold uppercase text-white/80">
+                    <div class="space-y-12">
+                        <h4 class="text-accent text-[10px] border-b border-accent/20 pb-4 tracking-[0.5em] font-en uppercase italic">Menu</h4>
+                        <ul class="space-y-6">
+                            <li><button onclick="showPage('about')" class="hover:text-accent transition-all">Philosophy</button></li>
+                            <li><button onclick="showPage('brands')" class="hover:text-accent transition-all">Collection</button></li>
+                            <li><button onclick="showPage('news')" class="hover:text-accent transition-all">Journal</button></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-12">
+                        <h4 class="text-accent text-[10px] border-b border-accent/20 pb-4 tracking-[0.5em] font-en uppercase italic">Store</h4>
+                        <ul class="space-y-6">
+                            <li><a href="https://torte-no-sanpo.com/" target="_blank" class="hover:text-accent transition-all">Torte No Sanpo</a></li>
+                            <li><a href="https://prugna-pane.com/" target="_blank" class="hover:text-accent transition-all">Prugna Pane</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-12 md:col-span-1 col-span-2">
+                        <h4 class="text-accent text-[10px] border-b border-accent/20 pb-4 tracking-[0.5em] font-en uppercase italic">Office</h4>
+                        <p class="text-[10px] leading-relaxed lowercase opacity-50 font-normal">
+                            kyoto, joyo-city,<br>
+                            terada midozaka 15-177<br>
+                            simple plan co., ltd.<br>
+                            0774-XX-XXXX
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-40 pt-16 border-t border-white/5 flex justify-between items-center flex-wrap gap-12">
+                <p class="text-[9px] tracking-[0.5em] uppercase text-white/30">&copy; SIMPLE PLAN CO., LTD. ALL RIGHTS RESERVED.</p>
+                <div class="w-32 h-32 relative hidden md:flex items-center justify-center opacity-[0.15]">
+                    <svg class="w-full h-full animate-[spin_60s_linear_infinite]" viewBox="0 0 100 100">
+                        <path id="footerPathCircle" d="M50,12 A38,38 0 1,1 49.9,12" fill="none"/>
+                        <text class="text-[5.5px] tracking-[1.1em] font-en uppercase fill-white italic">
+                            <textPath href="#footerPathCircle">Artisan Excellence — Elegance in Food — Joyo — </textPath>
+                        </text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 right-0 text-[25vw] font-serif text-white opacity-[0.015] pointer-events-none select-none italic font-extrabold">Elegance</div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('page-' + pageId);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(initAnimations, 100);
+            }
+        }
+        function initAnimations() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            reveals.forEach(el => observer.observe(el));
+        }
+        window.onload = initAnimations;
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 80) {
+                header.classList.add('bg-white/95', 'py-4', 'shadow-xl', 'backdrop-blur-md');
+                header.classList.remove('py-8');
+            } else {
+                header.classList.remove('bg-white/95', 'py-4', 'shadow-xl', 'backdrop-blur-md');
+                header.classList.add('py-8');
+            }
+        });
+        window.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 25;
+            const y = (e.clientY / window.innerHeight - 0.5) * 25;
+            document.querySelectorAll('.bg-deco-svg').forEach((svg, i) => {
+                const speed = (i + 1) * 0.4;
+                svg.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
