@@ -185,13 +185,15 @@
         }
 
         .bg-logbook {
-            background-image: radial-gradient(rgba(184, 159, 142, 0.3) 1px, transparent 1px);
+            /* Dots: Brighter color (lighter beige), density restored */
+            background-image: radial-gradient(rgba(215, 200, 190, 0.4) 1px, transparent 1px);
             background-size: 10px 10px;
         }
 
         .bg-blur-glass {
+            /* Adjusted opacity: Lighter (0.4) to show background text more clearly as requested */
             background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(4px);
         }
 
         .ruler-scale {
@@ -298,6 +300,71 @@
             background: rgba(255, 255, 255, 0.8);
         }
 
+        .luxury-stamp {
+            border: 2px double #D4AF37;
+            color: #D4AF37;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .gold-frame {
+            position: absolute;
+            inset: -15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .gold-frame::before {
+            content: "";
+            position: absolute;
+            inset: -5px;
+            border: 1px solid rgba(212, 175, 55, 0.6);
+        }
+
+        .ticket-stub {
+            background: #FDFCFB;
+            border: 1px solid #D4AF37;
+            padding: 10px 20px;
+            position: absolute;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 12px;
+            color: #D4AF37;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+            transform: rotate(-5deg);
+        }
+
+        .ticket-stub::before,
+        .ticket-stub::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            background: #2A2624;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .ticket-stub::before {
+            left: -5px;
+        }
+
+        .ticket-stub::after {
+            right: -5px;
+        }
+
         .stamp-circle {
             border-radius: 50%;
             width: 60px;
@@ -329,15 +396,43 @@
 
     <!-- 背景の装飾イラスト（より細く繊細に） -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- FIXED TEXT: CHERISH & MOMENTS (Global) -->
         <div class="giant-type top-[15%] left-[-2%]">Cherish</div>
         <div class="giant-type bottom-[15%] right-[-2%]">Moments</div>
+
+        <!-- Added Vertical Guides -->
+        <div
+            class="absolute left-[10%] top-0 h-full w-[1px] bg-stone-300 opacity-[0.15] border-l border-dashed border-stone-400">
+        </div>
+        <div
+            class="absolute right-[15%] top-0 h-full w-[1px] bg-stone-300 opacity-[0.1] border-l border-dotted border-stone-400">
+        </div>
+
+        <!-- Added Scattered Text -->
+        <div class="hero-text-pattern top-[40%] left-[2%] text-[10px] opacity-[0.4] rotate-90 tracking-[0.3em]">FIG. A -
+            CONCEPT</div>
+        <div class="hero-text-pattern bottom-[30%] right-[5%] text-[10px] opacity-[0.4] tracking-[0.3em]">REF-09 :
+            ARCHIVE</div>
+
+        <!-- Geometric Decoration 1 -->
         <svg class="bg-deco-svg w-64 h-64 top-40 -left-10 text-accent opacity-20" viewBox="0 0 100 100">
             <path fill="none" stroke="currentColor" stroke-width="0.1"
                 d="M30,90 Q40,50 60,10 M40,20 Q60,40 70,80 M20,40 L80,45" />
         </svg>
+
+        <!-- Geometric Decoration 2 -->
         <svg class="bg-deco-svg w-96 h-96 -bottom-20 right-10 text-accent opacity-10" viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="0.05"
                 stroke-dasharray="1 3" />
+            <rect x="20" y="20" width="60" height="60" fill="none" stroke="currentColor" stroke-width="0.05"
+                transform="rotate(45 50 50)" />
+        </svg>
+
+        <!-- Added Geometric Decoration 3 (Triangle Cluster) -->
+        <svg class="bg-deco-svg w-[500px] h-[500px] top-[30%] left-[20%] text-accent opacity-[0.03]"
+            viewBox="0 0 100 100">
+            <path d="M50,10 L90,90 L10,90 Z" fill="none" stroke="currentColor" stroke-width="0.2" />
+            <circle cx="50" cy="60" r="10" fill="currentColor" opacity="0.1" />
         </svg>
     </div>
 
@@ -395,11 +490,6 @@
                 </div>
 
                 <div class="col-span-12 md:col-span-9 relative h-[65vh] md:h-[85vh] order-1 md:order-2">
-                    <!-- 背景テキスト (Layer Fixed: Behind Images) -->
-                    <div
-                        class="absolute top-1/2 left-0 font-en text-[13vw] text-accent opacity-[0.06] -rotate-12 pointer-events-none font-bold italic tracking-tighter select-none">
-                        Sophistication</div>
-
                     <!-- メイン画像 -->
                     <div
                         class="absolute top-[10%] left-[5%] w-9/12 h-4/5 overflow-hidden reveal shadow-2xl border-[12px] border-white/80">
@@ -453,9 +543,9 @@
             </div>
         </section>
 
-        <!-- Message -->
-        <section class="py-48 relative border-y border-stone-200 overflow-hidden bg-blur-glass">
-            <div class="absolute top-0 right-0 w-1/4 h-full bg-accent/5 -z-10"></div>
+        <!-- Message (Philosophy) -->
+        <section class="py-48 relative border-y border-stone-200 overflow-hidden bg-blur-glass z-10">
+            <div class="absolute top-0 right-0 w-1/4 h-full bg-accent/40 -z-10"></div>
             <div class="container mx-auto px-6 max-w-5xl relative z-10 text-center md:text-left">
                 <div class="flex flex-col md:flex-row gap-24 items-center">
                     <div class="w-full md:w-1/2 reveal">
@@ -477,15 +567,17 @@
                         <div class="collage-frame rotate-1 shadow-lg">
                             <img src="./craft_hands.png" class="w-full h-full object-cover" alt="Craft Hands">
                         </div>
-                        <div class="absolute -top-10 -right-6 text-accent font-en italic text-6xl opacity-20">✧</div>
+                        <div class="absolute -top-10 -right-6 text-accent font-en italic text-6xl opacity-20">✧
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- OUR BRAND: 4列散布グリッド -->
-        <section class="py-48 bg-graph-paper relative overflow-hidden">
-            <div class="hero-text-pattern top-20 right-[-10%] opacity-[0.05] rotate-90 origin-right">GRID_SYSTEM_V.2.0
+        <section class="py-48 bg-graph-paper relative overflow-hidden z-10">
+            <div class="hero-text-pattern top-20 right-[-10%] opacity-[0.05] rotate-90 origin-right">
+                GRID_SYSTEM_V.2.0
             </div>
             <!-- Technical Lines SVG -->
             <svg class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20 z-0" viewBox="0 0 100 100"
@@ -516,9 +608,11 @@
                             </div>
                         </div>
                         <div class="mt-8 px-2">
-                            <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">CAFÉ & BAKERY
+                            <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">CAFÉ &
+                                BAKERY
                             </div>
-                            <h3 class="text-2xl font-serif font-bold mb-4 font-en italic uppercase tracking-wide">Prugna
+                            <h3 class="text-2xl font-serif font-bold mb-4 font-en italic uppercase tracking-wide">
+                                Prugna
                             </h3>
                             <p class="text-xs opacity-60 leading-relaxed">城陽の街に愛される、カフェとベーカリー。旬の恵みが、朝のテーブルを彩ります。</p>
                         </div>
@@ -532,7 +626,8 @@
                             </div>
                         </div>
                         <div class="mt-8 px-2 text-center">
-                            <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">PIZZERIA</div>
+                            <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">PIZZERIA
+                            </div>
                             <h3 class="text-2xl font-serif font-bold mb-4 font-en italic uppercase tracking-wide">IL
                                 FICO</h3>
                             <p class="text-xs opacity-60 leading-relaxed">薪窯が奏でる、香ばしいイタリアの記憶。職人が一枚ずつ魂を込めて焼き上げます。</p>
@@ -548,7 +643,8 @@
                         </div>
                         <div class="mt-8 px-2 text-right">
                             <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">BAKERY</div>
-                            <h3 class="text-2xl font-serif font-bold mb-4 font-en italic uppercase tracking-wide">Prugna
+                            <h3 class="text-2xl font-serif font-bold mb-4 font-en italic uppercase tracking-wide">
+                                Prugna
                                 Pane</h3>
                             <p class="text-xs opacity-60 leading-relaxed">素材の力強さを引き出す、私たちの特別なパン。全国へその感動を届けます。</p>
                         </div>
@@ -564,7 +660,8 @@
                         <div class="mt-8 px-2">
                             <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">ONLINE GIFT
                             </div>
-                            <h3 class="text-2xl font-serif font-bold mb-4 font-en italic uppercase tracking-wide">Torte
+                            <h3 class="text-2xl font-serif font-bold mb-4 font-en italic uppercase tracking-wide">
+                                Torte
                                 No Sanpo</h3>
                             <p class="text-xs opacity-60 leading-relaxed">心ほどける甘いひととき。城陽から届ける、心ほどけるギフトタルト。</p>
                         </div>
@@ -574,7 +671,7 @@
         </section>
 
         <!-- From JOYO -->
-        <section class="py-48 bg-white relative overflow-hidden">
+        <section class="py-48 bg-white relative overflow-hidden z-20">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                     <div class="relative min-h-[600px] reveal">
@@ -638,12 +735,12 @@
         </section>
 
         <!-- News & Topics -->
-        <section id="news" class="py-48 bg-logbook relative overflow-hidden">
+        <section id="news" class="py-48 bg-logbook relative overflow-hidden z-20 bg-[#FAF7F2]">
             <!-- Technical Data Decoration -->
             <div class="absolute top-10 left-10 font-en text-[9px] tracking-[0.2em] opacity-30 text-accent">
                 LOG_ID: 8842<br>SEC: JOURNAL<br>STATUS: ACTIVE
             </div>
-            <div class="hero-text-pattern bottom-0 left-0 text-[12vw] opacity-[0.02]">Timeless</div>
+
             <div class="container mx-auto px-6">
                 <div class="flex flex-col lg:flex-row-reverse items-center gap-24">
                     <div class="w-full lg:w-1/2 grid grid-cols-2 gap-6 reveal">
@@ -736,27 +833,48 @@
                         職人の焼き立て、想いのこもった一皿を。<br>城陽のアトリエから、全国のご自宅へお届けします。</p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+                    <!-- Item 1: Torte -->
                     <div
-                        class="bg-white/[0.03] border border-white/10 p-12 reveal group hover:bg-white/[0.06] transition-all duration-1000">
+                        class="bg-white/[0.03] border border-white/10 p-12 reveal group hover:bg-white/[0.06] transition-all duration-1000 relative">
+                        <!-- Luxury Decor -->
+                        <div class="luxury-stamp absolute -top-10 -right-6 rotate-12 z-20">
+                            <div>LIMITED<br>EDITION</div>
+                        </div>
+
+
                         <div
-                            class="aspect-video collage-frame mb-10 -rotate-1 group-hover:rotate-0 transition-transform">
+                            class="aspect-video collage-frame mb-10 -rotate-1 group-hover:rotate-0 transition-transform relative">
                             <img src="./torte_gift.png" class="w-full h-full object-cover" alt="Torte No Sanpo">
+                            <div class="gold-frame"></div> <!-- Gold Frame -->
                         </div>
                         <h3
-                            class="text-white text-3xl font-serif font-bold mb-6 font-en italic uppercase tracking-wider">
+                            class="text-white text-3xl font-serif font-bold mb-6 font-en italic uppercase tracking-wider relative z-10">
                             Torte No Sanpo</h3>
                         <p class="text-stone-400 text-sm mb-12 leading-loose">心ほどける甘いひととき。日常に小さな彩りを添えます。</p>
                         <!-- Button Updated: Solid by default -->
                         <a href="https://torte-no-sanpo.com/" target="_blank"
-                            class="inline-block bg-[#B89F8E] text-white px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-white hover:text-[#B89F8E] transition-all rounded-sm shadow-lg border border-[#B89F8E]">Visit
+                            class="inline-block bg-[#D4AF37] text-black px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-white hover:text-[#D4AF37] transition-all rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.4)] border border-[#D4AF37]">Visit
                             Shop</a>
                     </div>
+
+                    <!-- Item 2: Prugna -->
                     <div
-                        class="bg-white/[0.03] border border-white/10 p-12 reveal delay-300 group hover:bg-white/[0.06] transition-all duration-1000 md:mt-16">
+                        class="bg-white/[0.03] border border-white/10 p-12 reveal delay-300 group hover:bg-white/[0.06] transition-all duration-1000 relative">
+                        <!-- Luxury Decor -->
                         <div
-                            class="aspect-video collage-frame mb-10 rotate-1 group-hover:rotate-0 transition-transform">
+                            class="luxury-stamp absolute -bottom-10 -left-6 rotate-[-12deg] z-20 text-white border-white">
+                            <div>WORLD<br>CLASS</div>
+                        </div>
+                        <div
+                            class="hero-text-pattern top-[10%] right-[-20%] text-[8rem] opacity-[0.05] leading-none z-0">
+                            Prugna
+                        </div>
+
+                        <div
+                            class="aspect-video collage-frame mb-10 rotate-1 group-hover:rotate-0 transition-transform relative">
                             <img src="./bread_assortment.png" class="w-full h-full object-cover"
                                 alt="Prugna Pane Online">
+                            <div class="gold-frame"></div> <!-- Gold Frame -->
                         </div>
                         <h3
                             class="text-white text-3xl font-serif font-bold mb-6 font-en italic uppercase tracking-wider">
@@ -764,7 +882,7 @@
                         <p class="text-stone-400 text-sm mb-12 leading-loose">厳選素材の力強さを。冷凍配送でお届けします。</p>
                         <!-- Button Updated: Solid by default -->
                         <a href="https://prugna-pane.com/" target="_blank"
-                            class="inline-block bg-[#B89F8E] text-white px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-white hover:text-[#B89F8E] transition-all rounded-sm shadow-lg border border-[#B89F8E]">Visit
+                            class="inline-block bg-[#D4AF37] text-black px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-white hover:text-[#D4AF37] transition-all rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.4)] border border-[#D4AF37]">Visit
                             Shop</a>
                     </div>
                 </div>
