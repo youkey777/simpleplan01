@@ -1,0 +1,1227 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>譬ｪ蠑丈ｼ夂､ｾ繧ｷ繝ｳ繝励Ν繝励Λ繝ｳ | Artisan & Feminine Elegance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --color-text: #3A3532;
+            --color-bg: #FAF7F2;
+            /* 繧医ｊ譟斐ｉ縺九＞繧ｷ繧ｧ繝ｫ繝斐Φ繧ｯ繝吶・繧ｸ繝･ */
+            --color-accent: #B89F8E;
+            /* 譟斐ｉ縺九↑繝ｭ繝ｼ繧ｸ繝ｼ繝悶Λ繧ｦ繝ｳ */
+            --color-soft: #F2ECE7;
+            --paper-texture: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            background-image: var(--paper-texture);
+            overflow-x: hidden;
+            line-height: 1.9;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-serif {
+            font-family: 'Shippori Mincho', serif;
+        }
+
+        .font-en {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .noise::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .bg-deco-svg {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.12;
+            z-index: 0;
+            filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.02));
+        }
+
+        .collage-frame {
+            padding: 10px;
+            background: white;
+            box-shadow: 10px 10px 30px rgba(184, 159, 142, 0.15);
+            /* 繧｢繧ｯ繧ｻ繝ｳ繝医き繝ｩ繝ｼ繧呈ｷｷ縺懊◆豺｡縺・ｽｱ */
+            border: 1px solid #F5F0EB;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .collage-frame:hover {
+            transform: scale(1.03) rotate(0deg) !important;
+            z-index: 20;
+            box-shadow: 15px 20px 40px rgba(184, 159, 142, 0.25);
+        }
+
+        .giant-type {
+            font-size: 16vw;
+            line-height: 0.7;
+            opacity: 0.04;
+            position: absolute;
+            font-weight: 800;
+            pointer-events: none;
+            z-index: -1;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            letter-spacing: -0.02em;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .v-text {
+            writing-mode: vertical-rl;
+            letter-spacing: 0.6em;
+        }
+
+        .seal-stamp {
+            border: 1.5px solid var(--color-accent);
+            border-radius: 50%;
+            color: var(--color-accent);
+            padding: 24px;
+            text-align: center;
+            font-size: 9px;
+            font-weight: 500;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.03);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .path-deco {
+            position: absolute;
+            width: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-accent);
+            opacity: 0.5;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* 繝懊ち繝ｳ縺ｮ繝九Η繧｢繝ｳ繧ｹ螟画峩 */
+        .btn-elegant {
+            background-color: var(--color-text);
+            color: white;
+            padding: 1.25rem 3rem;
+            font-size: 10px;
+            letter-spacing: 0.4em;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .btn-elegant:hover {
+            background-color: var(--color-accent);
+            letter-spacing: 0.5em;
+            transform: translateY(-2px);
+        }
+
+        /* Rich Editorial Design Additions */
+        .bg-graph-paper {
+            background-image:
+                linear-gradient(rgba(184, 159, 142, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(184, 159, 142, 0.15) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .bg-logbook {
+            /* Dots: Brighter color (closer to white/beige), wider spacing */
+            background-image: radial-gradient(rgba(233, 215, 200, 0.8) 1.5px, transparent 1.5px);
+            background-size: 20px 20px;
+        }
+
+        .bg-blur-glass {
+            /* Adjusted opacity: Lighter (0.4) to show background text more clearly as requested */
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        .ruler-scale {
+            position: absolute;
+            display: flex;
+            align-items: flex-end;
+            opacity: 0.6;
+            color: var(--color-accent);
+        }
+
+        .ruler-scale span {
+            background: currentColor;
+            display: block;
+        }
+
+        .tag-connector {
+            position: absolute;
+            background: var(--color-accent);
+            opacity: 0.5;
+            z-index: 30;
+        }
+
+        .tag-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            z-index: 31;
+        }
+
+        .floating-tag {
+            position: absolute;
+            background: white;
+            padding: 4px 8px;
+            font-size: 9px;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.1em;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--color-accent);
+            z-index: 32;
+            line-height: 1.2;
+        }
+
+        .corner-bracket {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-color: var(--color-accent);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .corner-bracket.tl {
+            top: -5px;
+            left: -5px;
+            border-top: 1px solid;
+            border-left: 1px solid;
+        }
+
+        .corner-bracket.br {
+            bottom: -5px;
+            right: -5px;
+            border-bottom: 1px solid;
+            border-right: 1px solid;
+        }
+
+        .barcode {
+            display: flex;
+            height: 20px;
+            gap: 2px;
+            opacity: 0.4;
+        }
+
+        .barcode span {
+            background: currentColor;
+            width: 1px;
+            display: block;
+            height: 100%;
+        }
+
+        .hero-text-pattern {
+            position: absolute;
+            overflow: hidden;
+            white-space: nowrap;
+            color: var(--color-accent);
+            opacity: 0.03;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 10rem;
+            line-height: 0.8;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .stamp-mark {
+            border: 1px solid currentColor;
+            padding: 2px 6px;
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .luxury-stamp {
+            border: 2px double #D4AF37;
+            color: #D4AF37;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .gold-frame {
+            position: absolute;
+            inset: -15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .gold-frame::before {
+            content: "";
+            position: absolute;
+            inset: -5px;
+            border: 1px solid rgba(212, 175, 55, 0.6);
+        }
+
+        .ticket-stub {
+            background: #FDFCFB;
+            border: 1px solid #D4AF37;
+            padding: 10px 20px;
+            position: absolute;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 12px;
+            color: #D4AF37;
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+            transform: rotate(-5deg);
+        }
+
+        .ticket-stub::before,
+        .ticket-stub::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 10px;
+            height: 10px;
+            background: #2A2624;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .ticket-stub::before {
+            left: -5px;
+        }
+
+        .ticket-stub::after {
+            right: -5px;
+        }
+
+        .stamp-circle {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed currentColor;
+            font-size: 8px;
+            transform: rotate(-15deg);
+        }
+
+        .tape-accent {
+            position: absolute;
+            width: 80px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.4);
+            transform: rotate(-25deg);
+            z-index: 25;
+            backdrop-filter: blur(2px);
+            border-left: 1px dotted rgba(0, 0, 0, 0.1);
+            border-right: 1px dotted rgba(0, 0, 0, 0.1);
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="noise text-stone-800">
+
+    <!-- 閭梧勹縺ｮ陬・｣ｾ繧､繝ｩ繧ｹ繝茨ｼ医ｈ繧顔ｴｰ縺冗ｹ顔ｴｰ縺ｫ・・-->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <!-- FIXED TEXT: CHERISH & MOMENTS (Global) -->
+        <div class="giant-type top-[15%] left-[-2%]">Cherish</div>
+        <div class="giant-type bottom-[15%] right-[-2%]">Moments</div>
+
+        <!-- Added Vertical Guides -->
+        <div
+            class="absolute left-[10%] top-0 h-full w-[1px] bg-stone-300 opacity-[0.15] border-l border-dashed border-stone-400">
+        </div>
+        <div
+            class="absolute right-[15%] top-0 h-full w-[1px] bg-stone-300 opacity-[0.1] border-l border-dotted border-stone-400">
+        </div>
+
+        <!-- Added Scattered Text -->
+        <div class="hero-text-pattern top-[40%] left-[2%] text-[10px] opacity-[0.4] rotate-90 tracking-[0.3em]">FIG. A -
+            CONCEPT</div>
+        <div class="hero-text-pattern bottom-[30%] right-[5%] text-[10px] opacity-[0.4] tracking-[0.3em]">REF-09 :
+            ARCHIVE</div>
+
+        <!-- Geometric Decoration 1 -->
+        <svg class="bg-deco-svg w-64 h-64 top-40 -left-10 text-accent opacity-20" viewBox="0 0 100 100">
+            <path fill="none" stroke="currentColor" stroke-width="0.1"
+                d="M30,90 Q40,50 60,10 M40,20 Q60,40 70,80 M20,40 L80,45" />
+        </svg>
+
+        <!-- Geometric Decoration 2 -->
+        <svg class="bg-deco-svg w-96 h-96 -bottom-20 right-10 text-accent opacity-10" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="0.05"
+                stroke-dasharray="1 3" />
+            <rect x="20" y="20" width="60" height="60" fill="none" stroke="currentColor" stroke-width="0.05"
+                transform="rotate(45 50 50)" />
+        </svg>
+
+        <!-- Added Geometric Decoration 3 (Triangle Cluster) -->
+        <svg class="bg-deco-svg w-[500px] h-[500px] top-[30%] left-[20%] text-accent opacity-[0.03]"
+            viewBox="0 0 100 100">
+            <path d="M50,10 L90,90 L10,90 Z" fill="none" stroke="currentColor" stroke-width="0.2" />
+            <circle cx="50" cy="60" r="10" fill="currentColor" opacity="0.1" />
+        </svg>
+    </div>
+
+    <style>
+        .hero-slide {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+    </style>
+
+    <header
+        class="fixed top-0 left-0 w-full z-50 px-6 py-8 md:px-12 flex justify-between items-center transition-all duration-700"
+        id="main-header">
+        <div class="flex flex-col cursor-pointer group" onclick="showPage('top')">
+            <h1
+                class="text-3xl md:text-4xl font-serif font-extrabold tracking-[0.15em] leading-none group-hover:text-accent transition-colors">
+                Simple Plan</h1>
+            <div class="flex items-center gap-3 mt-2">
+                <span class="h-[1px] w-8 bg-accent opacity-60"></span>
+                <span class="text-[9px] tracking-[0.5em] font-en uppercase opacity-60 italic">Artisan & Feminine</span>
+            </div>
+        </div>
+
+        <nav class="hidden xl:flex items-center gap-14">
+            <div class="flex gap-14 text-[13px] tracking-[0.2em] font-medium relative">
+                <button onclick="showPage('about')"
+                    class="hover:text-accent font-serif tracking-widest transition-all">莨∵･ｭ逅・ｿｵ</button>
+                <button onclick="showPage('brands')"
+                    class="hover:text-accent font-serif tracking-widest transition-all">螻暮幕繝悶Λ繝ｳ繝・/button>
+                <button onclick="showPage('news')"
+                    class="hover:text-accent font-serif tracking-widest transition-all">縺顔衍繧峨○繝ｻ繝医ヴ繝・け繧ｹ</button>
+                <button onclick="showPage('services')"
+                    class="hover:text-accent font-serif tracking-widest transition-all">縺昴・莉悶・繧ｵ繝ｼ繝薙せ</button>
+                <span class="absolute -top-5 left-1/2 -translate-x-1/2 text-accent/40 text-sm font-en italic">笨ｧ</span>
+            </div>
+            <a href="#online-shop"
+                class="bg-stone-800 text-white px-10 py-3 text-[11px] tracking-[0.2em] font-serif font-bold hover:bg-accent transition-all shadow-xl rounded-sm">繧ｪ繝ｳ繝ｩ繧､繝ｳ繧ｷ繝ｧ繝・・</a>
+        </nav>
+
+        <button class="xl:hidden flex flex-col gap-2 z-[60] relative" onclick="toggleMenu()">
+            <span class="w-8 h-[1px] bg-stone-800 transition-all duration-300 menu-line-1 origin-right"></span>
+            <span class="w-5 h-[1px] bg-stone-800 self-end transition-all duration-300 menu-line-2 origin-right"></span>
+        </button>
+    </header>
+
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white/95 backdrop-blur-md z-50 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500">
+        <div class="flex flex-col gap-10 text-center text-lg tracking-widest font-serif">
+            <button onclick="showPage('about'); toggleMenu()" class="hover:text-accent">莨∵･ｭ逅・ｿｵ</button>
+            <button onclick="showPage('brands'); toggleMenu()" class="hover:text-accent">螻暮幕繝悶Λ繝ｳ繝・/button>
+            <button onclick="showPage('news'); toggleMenu()" class="hover:text-accent">縺顔衍繧峨○繝ｻ繝医ヴ繝・け繧ｹ</button>
+            <button onclick="showPage('services'); toggleMenu()" class="hover:text-accent">縺昴・莉悶・繧ｵ繝ｼ繝薙せ</button>
+            <a href="#online-shop" onclick="toggleMenu()"
+                class="text-accent border-t border-accent/20 pt-8 mt-4">繧ｪ繝ｳ繝ｩ繧､繝ｳ繧ｷ繝ｧ繝・・</a>
+        </div>
+    </div>
+
+    <!-- TOP PAGE -->
+    <main id="page-top" class="page active relative">
+
+        <!-- Hero: 蠕ｩ蜈・＆繧後◆繝ｪ繧ｺ繝 + 繝輔ぉ繝溘ル繝ｳ縺ｪ繝九Η繧｢繝ｳ繧ｹ -->
+        <section class="relative min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+
+                <div
+                    class="col-span-12 md:col-span-5 reveal flex flex-col items-center md:items-start order-2 md:order-1 mt-12 md:mt-0 md:pl-8 lg:pl-16 z-30">
+                    <div class="v-text font-serif text-2xl md:text-[1.6rem] lg:text-[2rem] leading-[2.5] text-stone-800 font-bold tracking-widest"
+                        style="writing-mode: vertical-rl;">
+                        譌･蟶ｸ縺ｮ縺ｲ縺ｨ繧ｳ繝槭↓縲・br>
+                        螯･蜊斐↑縺阪梧悽迚ｩ縲・br>
+                        縺ｮ萓｡蛟､繧偵・
+                    </div>
+                </div>
+
+                <div
+                    class="col-span-12 md:col-start-7 md:col-span-6 relative h-[25vh] md:h-[90vh] order-1 md:order-2 flex flex-row items-center justify-center md:grid md:grid-cols-12 md:grid-rows-12 md:gap-0 mt-8 md:mt-0">
+
+                    <!-- Image 1 (Top Left) -->
+                    <div
+                        class="md:col-start-1 md:col-span-5 md:row-start-2 md:row-span-5 reveal delay-150 transform max-md:-translate-y-6 md:rotate-[-3deg] transition-transform hover:rotate-0 self-center md:self-auto w-[36%] md:w-full z-10 shadow-md md:shadow-lg -mr-2 md:mr-0">
+                        <div class="aspect-[4/5] collage-frame w-full">
+                            <img src="assets/images/%E8%9C%88%E3%83%BB%EF%BD%B4%EF%A3%B0%E8%AD%9A%E3%83%BBS__34291744_0.jpg"
+                                class="w-full h-full object-cover">
+                            <!-- TAPE ACCENT -->
+                            <div class="tape-accent top-[-10px] left-[10%] opacity-80 mix-blend-multiply"></div>
+                        </div>
+                    </div>
+
+                    <!-- Image 2 (Center Right - Main) -->
+                    <div
+                        class="md:col-start-6 md:col-span-7 md:row-start-4 md:row-span-6 reveal delay-300 transform scale-105 md:scale-100 z-20 self-center md:self-auto w-[38%] md:w-full shadow-xl transition-transform duration-1000 hover:scale-[1.03]">
+                        <div
+                            class="aspect-[4/5] md:aspect-square border-[4px] md:border-[12px] border-white w-full overflow-hidden">
+                            <img src="assets/images/S__34291766.jpg"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <!-- Ruler Side -->
+                        <div
+                            class="ruler-scale flex-col left-[-2px] bottom-10 gap-1 absolute z-40 bg-white/80 p-1 hidden md:flex">
+                            <span class="w-[6px] h-[1px] bg-stone-500"></span><span
+                                class="w-[4px] h-[1px] bg-stone-500"></span><span
+                                class="w-[10px] h-[1px] bg-accent"></span>
+                        </div>
+                    </div>
+
+                    <!-- Image 3 (Bottom Left) -->
+                    <div
+                        class="md:col-start-2 md:col-span-6 md:row-start-9 md:row-span-4 reveal delay-700 transform max-md:translate-y-6 md:rotate-[4deg] transition-transform hover:rotate-0 self-center md:self-auto w-[36%] md:w-full z-10 shadow-md md:shadow-xl opacity-95 -ml-2 md:ml-0">
+                        <div class="aspect-[4/5] md:aspect-[4/3] collage-frame w-full relative">
+                            <img src="assets/images/S__34291857_0.jpg"
+                                class="w-full h-full object-cover">
+                            <!-- Overlay to add depth without overlapping -->
+                            <div class="absolute inset-0 bg-stone-900/5 mix-blend-multiply pointer-events-none"></div>
+                        </div>
+                    </div>
+
+                    <!-- Extra Decorative Stamp -->
+                    <div
+                        class="hidden md:block stamp-mark stamp-circle absolute bottom-1/4 right-0 reveal delay-1000 z-40 opacity-80 mix-blend-multiply scale-75">
+                        <div>PREMIUM<br>QUALITY<br>---</div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute inset-0 z-0 opacity-[0.04]"
+                style="background-image: radial-gradient(#B89F8E 1.5px, transparent 1.5px); background-size: 40px 40px;">
+            </div>
+        </section>
+
+        <!-- Message (Philosophy) -->
+        <section class="py-48 relative border-y border-stone-200 overflow-hidden bg-blur-glass z-10">
+            <div class="absolute top-0 right-0 w-1/4 h-full bg-accent/40 -z-10"></div>
+            <div class="container mx-auto px-6 max-w-5xl relative z-10 text-center md:text-left">
+                <div class="flex flex-col md:flex-row gap-24 items-center">
+                    <div class="w-full md:w-1/2 reveal">
+                        <div class="flex items-center justify-center md:justify-start gap-4 mb-10">
+                            <span class="w-10 h-[1px] bg-accent"></span>
+                            <span
+                                class="font-en italic text-accent text-xl font-bold tracking-[0.2em]">Philosophy</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-serif font-extrabold leading-[1.4] mb-12">
+                            繧ｸ繝｣繝ｳ繝ｫ繧定ｶ・∴縺ｦ謖第姶縺礼ｶ壹￠繧九・br><span class="text-accent italic">萓｡蛟､蜑ｵ騾縺ｮ繝励Ο繝輔ぉ繝・す繝ｧ繝翫Ν縲・/span>
+                        </h2>
+                        <p class="text-[15px] leading-[2.4] font-serif font-medium opacity-80">
+                            譛ｬ譬ｼ繧､繧ｿ繝ｪ繧｢繝ｳ繝ｬ繧ｹ繝医Λ繝ｳ縺九ｉ縲√ち繝ｫ繝亥ｰる摩蠎励・ｫ倡ｴ夐｣溘ヱ繝ｳ蟆る摩蠎励√＆繧峨↓縺ｯ蜃ｺ蠑ｵ譁咏炊繧・ぎ莠玖ｲｩ螢ｲ縺ｾ縺ｧ縲・br>
+                            遘√◆縺｡縺悟､壼ｽｩ縺ｪ莠区･ｭ繧貞ｱ暮幕縺吶ｋ逅・罰縺ｯ縲後←縺ｮ繧ｷ繝ｼ繝ｳ縺ｧ繧ゅ√♀螳｢讒倥↓譛鬮倥・菴馴ｨ薙ｒ縺雁ｱ翫￠縺励◆縺・阪→縺・≧蠑ｷ縺・Φ縺・′縺ゅｋ縺九ｉ縺ｧ縺吶る｣溘→縺・≧譫邨・∩繧定ｶ・∴縲∬・莠ｺ縺ｮ謇倶ｻ穂ｺ九→螯･蜊斐↑縺咲ｴ譚宣∈縺ｳ縺ｫ繧医▲縺ｦ縲∵律蟶ｸ縺ｫ窶晄悽雉ｪ縺ｮ蝟懊・窶昴ｒ謠蝉ｾ帙＠邯壹￠繧倶ｼ∵･ｭ縺ｧ縺ゅｊ縺溘＞縺ｨ鬘倥▲縺ｦ縺・∪縺吶・
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/2 relative reveal delay-300 px-4 md:px-0">
+                        <div class="collage-frame rotate-1 shadow-lg">
+                            <img src="assets/images/414431568_18301668553127847_8891418241376474849_n.jpg"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -top-6 -right-2 flex flex-col items-center gap-1.5 opacity-40">
+                            <span class="w-[1px] h-12 bg-accent"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR BRAND: 4蛻玲淵蟶・げ繝ｪ繝・ラ -->
+        <section class="py-48 bg-graph-paper relative overflow-hidden z-10">
+            <div class="hero-text-pattern top-20 right-[-10%] opacity-[0.05] rotate-90 origin-right">
+                GRID_SYSTEM_V.2.0
+            </div>
+            <!-- Technical Lines SVG -->
+            <svg class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20 z-0" viewBox="0 0 100 100"
+                preserveAspectRatio="none">
+                <line x1="10" y1="0" x2="10" y2="100" stroke="currentColor" stroke-width="0.1" stroke-dasharray="2 2" />
+                <line x1="90" y1="0" x2="90" y2="100" stroke="currentColor" stroke-width="0.1" stroke-dasharray="2 2" />
+                <line x1="0" y1="50" x2="100" y2="50" stroke="currentColor" stroke-width="0.1"
+                    class="hidden md:block" />
+            </svg>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8 reveal">
+                    <div>
+                        <h2
+                            class="text-5xl md:text-6xl font-serif font-extrabold mb-6 font-en italic uppercase tracking-tighter">
+                            OUR BRAND</h2>
+                        <p
+                            class="font-serif text-accent text-sm md:text-base font-medium tracking-widest text-[#B89F8E]">
+                            遘√◆縺｡縺悟宍驕ｸ縺励∝､ｧ蛻・↓閧ｲ繧<br class="md:hidden">閨ｷ莠ｺ縺ｨ鬟溘・菴馴ｨ薙・
+                        </p>
+                    </div>
+                    <div class="h-[1px] flex-grow bg-stone-200 mx-10 hidden md:block"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-24 items-start">
+                    <!-- Brand 1: Osteria -->
+                    <div class="group reveal relative">
+                        <a href="https://tabelog.com/kyoto/A2607/A260704/26027948/" target="_blank" class="block">
+                            <div class="collage-frame -rotate-3 group-hover:rotate-0 transition-transform">
+                                <div class="aspect-[4/5] overflow-hidden">
+                                    <img src="assets/images/S__34291858_0.jpg"
+                                        class="w-full h-full object-cover transition-transform duration-[2.5s] group-hover:scale-110">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="mt-8 px-2">
+                            <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">ITALIAN
+                                RESTAURANT</div>
+                            <h3 class="text-xl font-serif font-bold mb-2 tracking-wide">
+                                Osteria<br>Lo Stuzzichino
+                            </h3>
+                            <p class="text-[10px] text-gray-400 tracking-widest mb-4">繧ｪ繧ｹ繝・Μ繧｢ 繝ｭ 繧ｹ繝医ぇ繝・ヤ繧ｭ繝ｼ繝・/p>
+                            <p class="text-[11px] opacity-80 leading-relaxed font-medium">
+                                繧ｫ繝輔ぉ縺ｮ繧医≧縺ｪ螻・ｿ・慍縺ｮ濶ｯ縺輔・荳ｭ縺ｧ縲∵悽譬ｼ逧・↑繧､繧ｿ繝ｪ繧｢繝ｳ繧貞袖繧上∴繧九Ξ繧ｹ繝医Λ繝ｳ縲ょ慍蜈・・蝓朱區縺ｮ鬟滓攝縺ｫ縺薙□繧上ｊ謚懊″縲√◎縺ｮ迸ｬ髢薙↓荳逡ｪ霈昴￥蠖｢縺ｫ莉慕ｫ九※縺滓流縺ｮ繧ｳ繝ｼ繧ｹ譁咏炊繧偵＃蝣ｪ閭ｽ縺・◆縺縺代∪縺吶ゅｆ縺｣縺溘ｊ縺ｨ縺励◆繧ｫ繝輔ぉ繧ｿ繧､繝繧・ユ繧､繧ｯ繧｢繧ｦ繝医∝推遞ｮ繝代・繝・ぅ繝ｼ繝励Λ繝ｳ縺ｪ縺ｩ縲∝､壼ｽｩ縺ｪ繧ｷ繝ｼ繝ｳ縺ｧ縺泌茜逕ｨ縺上□縺輔＞縲・
+                            </p>
+                            <a href="https://tabelog.com/kyoto/A2607/A260704/26027948/" target="_blank"
+                                class="inline-block mt-4 text-[10px] border-b border-stone-300 pb-1 hover:border-accent transition-all tracking-widest text-[#B89F8E]">VISIT
+                                SITE</a>
+                        </div>
+                    </div>
+                    <!-- Brand 2: Torte -->
+                    <div class="group reveal delay-200 lg:mt-24 relative">
+                        <a href="https://torte-no-sanpo.com/" target="_blank" class="block">
+                            <div class="collage-frame rotate-2 group-hover:rotate-0 transition-transform mx-auto">
+                                <div class="aspect-[4/5] overflow-hidden">
+                                    <img src="assets/images/torte.jpg"
+                                        class="w-full h-full object-cover transition-transform duration-[2.5s] group-hover:scale-110">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="mt-8 px-2 text-center">
+                            <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">TART & SWEETS
+                            </div>
+                            <h3 class="text-xl font-serif font-bold mb-2 tracking-wide">繝医Ν繝・・縺輔ｓ縺ｽ</h3>
+                            <p class="text-[11px] opacity-80 leading-relaxed font-medium">
+                                繧､繧ｿ繝ｪ繧｢繝ｳ繧ｷ繧ｧ繝慕屮菫ｮ縺ｮ譛ｬ譬ｼ豢ｾ繧ｿ繝ｫ繝医→辟ｼ縺崎藷蟄舌・蟆る摩蠎励ょ・蝗ｽ蜷・慍縺ｮ蛯ｬ莠九↓縺ｦ謨ｰ蜊∽ｸ・九・雋ｩ螢ｲ螳溽ｸｾ繧定ｪ・ｋ縲∫｢ｺ縺九↑蜻ｳ繧上＞縺ｨ蠢・⊇縺ｩ縺代ｋ逕倥＞縺ｲ縺ｨ縺ｨ縺阪ｒ縺碑・螳・ｄ雍医ｊ迚ｩ縺ｸ縺ｨ縺雁ｱ翫￠縺励∪縺吶・/p>
+                            <a href="https://torte-no-sanpo.com/" target="_blank"
+                                class="inline-block mt-4 text-[10px] border-b border-stone-300 pb-1 hover:border-accent transition-all tracking-widest text-[#B89F8E]">VISIT
+                                SITE</a>
+                        </div>
+                    </div>
+                    <!-- Brand 3: Prugna -->
+                    <div class="group reveal delay-400 relative">
+                        <a href="https://prugna-pane.com/" target="_blank" class="block">
+                            <div class="collage-frame -rotate-1 group-hover:rotate-0 transition-transform ml-auto">
+                                <div class="aspect-[4/5] overflow-hidden">
+                                    <img src="assets/images/%E9%AC%9F%E6%BA%98%E3%83%B1%E7%B9%9D%EF%BD%B3.png"
+                                        class="w-full h-full object-cover transition-transform duration-[2.5s] group-hover:scale-110">
+                                </div>
+                            </div>
+                        </a>
+                        <div class="mt-8 px-2 text-right">
+                            <div class="text-[9px] tracking-[0.4em] font-bold text-accent mb-3 font-en">PREMIUM BAKERY
+                            </div>
+                            <h3 class="text-xl font-serif font-bold mb-2 tracking-wide">繝励Ν繝ｳ繝九Ε</h3>
+                            <p class="text-[11px] opacity-80 leading-relaxed font-medium">
+                                豈取律鬟溘∋繧九ｂ縺ｮ縺縺九ｉ縺薙◎縲∝ｦ･蜊斐・縺ｪ縺・悽迚ｩ繧偵ょ宍驕ｸ縺輔ｌ縺溽ｴ譚宣∈縺ｳ縺九ｉ陬ｽ豕輔↓縺ｾ縺ｧ蠕ｹ蠎慕噪縺ｫ縺薙□繧上ｊ謚懊″縲∽ｻ悶↓縺ｯ縺ｪ縺・ｩｶ讌ｵ縺ｮ鬟滓─縺ｨ豺ｱ縺・袖繧上＞繧貞ｮ溽樟縺励◆迚ｹ蛻･縺ｪ鬮倡ｴ夐｣溘ヱ繝ｳ縺ｧ縺吶・/p>
+                            <a href="https://prugna-pane.com/" target="_blank"
+                                class="inline-block mt-4 text-[10px] border-b border-stone-300 pb-1 hover:border-accent transition-all tracking-widest text-[#B89F8E]">VISIT
+                                SITE</a>
+                        </div>
+                    </div>
+                    <!-- Empty div to keep grid balance -->
+                    <div class="hidden lg:block"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- From JOYO (Our Promise) -->
+        <section class="py-48 bg-white relative overflow-hidden z-20">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+                    <div class="relative min-h-[400px] md:min-h-[600px] reveal">
+                        <div
+                            class="absolute top-0 left-0 w-7/12 md:w-8/12 aspect-square overflow-hidden shadow-xl rotate-[-1.5deg] z-10 border-white border-[10px]">
+                            <!-- 1逡ｪ: hatake.jpg -->
+                            <img src="assets/images/hatake.jpg"
+                                class="w-full h-full object-cover" alt="Fresh Green Vegetable Field">
+                        </div>
+                        <div
+                            class="absolute bottom-0 right-0 w-7/12 aspect-[4/3] collage-frame rotate-[4deg] z-20 hover:scale-100 hover:rotate-[4deg]">
+                            <!-- 2逡ｪ: nakama.jpg -->
+                            <img src="assets/images/nakama.jpg"
+                                class="w-full h-full object-cover" alt="Community">
+                            <div
+                                class="absolute bottom-4 right-4 bg-white/95 px-3 py-1 text-[8px] font-bold tracking-[0.3em] uppercase italic text-accent">
+                                Pure Origin</div>
+                        </div>
+                        <div
+                            class="absolute top-0 right-0 md:top-[10%] md:right-10 v-text font-serif italic text-accent text-3xl opacity-60 select-none z-50 pointer-events-none">
+                            From JOYO City</div>
+                    </div>
+
+                    <div class="reveal delay-300">
+                        <span class="font-en italic text-accent text-2xl block mb-6 font-medium">Our Promise</span>
+                        <h2 class="text-4xl md:text-[3.5rem] font-serif font-extrabold mb-12 leading-[1.2]">
+                            蝨ｰ蝓溘〒蜚ｯ荳縺ｮ縲・br><span
+                                class="text-accent underline decoration-[0.5px] underline-offset-8 italic">雎翫°縺ｪ鬟滉ｽ馴ｨ薙ｒ縲・/span>
+                        </h2>
+                        <div class="space-y-12">
+                            <div class="flex gap-10 group">
+                                <div
+                                    class="w-14 h-14 border border-accent/20 rounded-full flex items-center justify-center text-accent font-en italic text-lg group-hover:bg-accent group-hover:text-white transition-all duration-700 shrink-0">
+                                    01</div>
+                                <div class="flex-grow">
+                                    <h4 class="text-xl font-bold mb-3 font-serif tracking-wide">蝨ｰ蜈・ｾｲ螳ｶ縺ｨ縺ｮ騾｣謳ｺ</h4>
+                                    <p class="text-sm opacity-60 leading-loose">
+                                        蝓朱區縺ｮ霎ｲ螳ｶ縺ｨ逶ｴ謗･鬘斐ｒ蜷医ｏ縺帙√◎縺ｮ譌･縺ｮ譛繧りｼ昴￥鬟滓攝繧貞宍驕ｸ縲ら函逕｣閠・・諠ｳ縺・→譌ｬ縺ｮ蜉帛ｼｷ縺輔ｒ縲√◎縺ｮ縺ｾ縺ｾ縺顔堊縺ｮ荳翫∈縺ｨ縺雁ｱ翫￠縺励∪縺吶・
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex gap-10 group">
+                                <div
+                                    class="w-14 h-14 border border-accent/20 rounded-full flex items-center justify-center text-accent font-en italic text-lg group-hover:bg-accent group-hover:text-white transition-all duration-700 shrink-0">
+                                    02</div>
+                                <div class="flex-grow">
+                                    <h4 class="text-xl font-bold mb-3 font-serif tracking-wide">譌ｬ縺ｮ鬟滓攝縺ｮ縺ｿ繧貞宍驕ｸ</h4>
+                                    <p class="text-sm opacity-60 leading-loose">
+                                        蝗帛ｭ｣謚倥・・諱ｵ縺ｿ繧剃ｸ逡ｪ鄒主袖縺励＞迸ｬ髢薙↓縲ゅ◎縺ｮ譎ょｭ｣縺ｫ縺励°蜃ｺ騾｢縺医↑縺・慍蝣ｴ驥手除繧・宍驕ｸ邏譚舌′縲∫ｧ√◆縺｡縺ｮ繧､繝ｳ繧ｹ繝斐Ξ繝ｼ繧ｷ繝ｧ繝ｳ縺ｮ貅舌〒縺吶・
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex gap-10 group">
+                                <div
+                                    class="w-14 h-14 border border-accent/20 rounded-full flex items-center justify-center text-accent font-en italic text-lg group-hover:bg-accent group-hover:text-white transition-all duration-700 shrink-0">
+                                    03</div>
+                                <div class="flex-grow">
+                                    <h4 class="text-xl font-bold mb-3 font-serif tracking-wide">邏譚舌′荳逡ｪ縺翫＞縺励￥逕溘″繧句ｽ｢縺ｧ縺ｮ謠蝉ｾ・/h4>
+                                    <p class="text-sm opacity-60 leading-loose">
+                                        鬟滓攝縺ｮ謖√■蜻ｳ繧呈怙螟ｧ髯舌↓蠑輔″蜃ｺ縺吶◆繧√√う繧ｿ繝ｪ繧｢繝ｳ縺ｮ譫縺ｫ縺ｨ繧峨ｏ繧後↑縺・・逕ｱ縺ｪ逋ｺ諠ｳ縺ｨ遒ｺ縺九↑謚陦薙〒縲∬ｨ俶・縺ｫ谿九ｋ荳逧ｿ縺ｫ譏・庄縺輔○縺ｾ縺吶・
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News & Topics -->
+        <section id="news" class="py-48 bg-logbook relative overflow-hidden z-20 bg-[#FAF7F2]">
+            <!-- Technical Data Decoration -->
+            <div class="absolute top-10 left-10 font-en text-[9px] tracking-[0.2em] opacity-30 text-accent">
+                LOG_ID: 8842<br>SEC: JOURNAL<br>STATUS: ACTIVE
+            </div>
+
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
+                    <!-- Text Block (Left) -->
+                    <div class="w-full lg:w-7/12 reveal">
+                        <h3 class="font-serif italic text-accent text-3xl mb-16 font-bold tracking-[0.1em]">
+                            News & Topics
+                        </h3>
+                        <div class="space-y-12 pr-0 lg:pr-8">
+                            <!-- Article 1 -->
+                            <article class="group relative">
+                                <details class="group/details">
+                                    <summary class="list-none outline-none cursor-pointer">
+                                        <time
+                                            class="font-en text-stone-400 text-[10px] tracking-[0.4em] font-bold">2026.03.03</time>
+                                        <h4
+                                            class="text-2xl font-serif font-bold mt-3 group-hover/details:text-accent transition-all leading-relaxed underline decoration-stone-200 decoration-[0.5px] underline-offset-[12px] flex items-center justify-between">
+                                            <span>Osteria Lo Stuzzichino縺後げ繝ｩ繝ｳ繝・br class="lg:hidden">繧ｪ繝ｼ繝励Φ縺励∪縺励◆縲・/span>
+                                            <span
+                                                class="text-xl font-en transform transition-transform group-open/details:rotate-45 text-stone-300">+</span>
+                                        </h4>
+                                    </summary>
+                                    <div class="mt-8 text-sm text-stone-500 leading-loose pr-8 pb-4">
+                                        縲訓rugna+Cafe縲阪→縲栗LFICO縲阪・豁ｴ蜿ｲ繧貞女縺醍ｶ吶℃縲∵眠縺溘↓縲三steria Lo
+                                        Stuzzichino縲上→縺励※繧ｰ繝ｩ繝ｳ繝峨が繝ｼ繝励Φ縺励∪縺励◆縲ょ沁髯ｽ縺ｮ譌ｬ縺ｮ鬟滓攝繧呈ｴｻ縺九＠縺滓悽譬ｼ繧､繧ｿ繝ｪ繧｢繝ｳ繧ｳ繝ｼ繧ｹ縺ｪ縺ｩ繧偵＃逕ｨ諢上＠縲∫嚀讒倥・縺願ｶ翫＠繧貞ｿ・ｈ繧翫♀蠕・■縺励※縺翫ｊ縺ｾ縺吶・br><br>
+                                        繝ｩ繝ｳ繝√→繝・ぅ繝翫・縺ｧ縺ｮ蝟ｶ讌ｭ縺ｫ蜉縺医∬・螳ｶ陬ｽ繝代Φ縺ｨ蜷医ｏ縺帙◆譁ｰ縺励＞繧ｹ繧ｿ繧､繝ｫ繧偵＃蝣ｪ閭ｽ縺上□縺輔＞縲ょ､ｧ蛻・↑譁ｹ縺ｨ縺ｮ隱槭ｉ縺・・蝣ｴ縺ｨ縺励※縲√●縺ｲ蠖灘ｺ励ｒ縺泌茜逕ｨ縺上□縺輔＞縺ｾ縺帙・
+                                    </div>
+                                </details>
+                            </article>
+                            <!-- Article 2 -->
+                            <article class="group relative">
+                                <details class="group/details">
+                                    <summary class="list-none outline-none cursor-pointer">
+                                        <time
+                                            class="font-en text-stone-400 text-[10px] tracking-[0.4em] font-bold">2026.03.01</time>
+                                        <h4
+                                            class="text-2xl font-serif font-bold mt-3 group-hover/details:text-accent transition-all leading-relaxed underline decoration-stone-200 decoration-[0.5px] underline-offset-[12px] flex items-center justify-between">
+                                            <span>繝帙・繝繝壹・繧ｸ繧偵Μ繝九Η繝ｼ繧｢繝ｫ縺励∪縺励◆縲・/span>
+                                            <span
+                                                class="text-xl font-en transform transition-transform group-open/details:rotate-45 text-stone-300">+</span>
+                                        </h4>
+                                    </summary>
+                                    <div class="mt-8 text-sm text-stone-500 leading-loose pr-8 pb-4">
+                                        譁ｰ蠎苓・縺ｮ繧ｪ繝ｼ繝励Φ縺ｫ蜷医ｏ縺帙※縲∵ｪ蠑丈ｼ夂､ｾ繧ｷ繝ｳ繝励Ν繝励Λ繝ｳ縺ｮ繧ｳ繝ｼ繝昴Ξ繝ｼ繝医・繝ｼ繝繝壹・繧ｸ繧偵Μ繝九Η繝ｼ繧｢繝ｫ縺・◆縺励∪縺励◆縲らｧ√◆縺｡縺ｮ譁ｰ縺溘↑縲薫ur
+                                        Promise縲阪ｄ繝悶Λ繝ｳ繝峨さ繝ｬ繧ｯ繧ｷ繝ｧ繝ｳ縲√が繝ｳ繝ｩ繧､繝ｳ繧ｷ繝ｧ繝・・縲√♀蠑∝ｽ鍋ｭ峨・縺疲｡亥・縺ｪ縺ｩ繧ｳ繝ｳ繝・Φ繝・ｒ蜈・ｮ溘＆縺帙※縺翫ｊ縺ｾ縺吶・br><br>
+                                        莉雁ｾ後→繧ゅ√す繝ｳ繝励Ν繝励Λ繝ｳ縺ｮ繧ｵ繝ｼ繝薙せ繧偵＃諢幃｡ｧ雉懊ｊ縺ｾ縺吶ｈ縺・√♀鬘倥＞逕ｳ縺嶺ｸ翫￡縺ｾ縺吶・
+                                    </div>
+                                </details>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Decorative Image Block (Right) -->
+                    <div class="w-full lg:w-5/12 reveal delay-300 mt-16 lg:mt-0 lg:pl-8">
+                        <!-- Mobile: Zigzag overlapping, Desktop: No-overlap grid -->
+                        <div
+                            class="flex flex-row items-center justify-center lg:grid lg:grid-cols-2 lg:gap-4 lg:gap-y-6 w-full max-w-sm lg:max-w-none mx-auto lg:ml-auto">
+                            <!-- Image 1 -->
+                            <div
+                                class="lg:col-span-1 w-[36%] lg:w-full z-10 transform max-md:-translate-y-4 lg:rotate-[-3deg] transition-transform hover:rotate-0 shadow-md lg:shadow-md collage-frame -mr-2 lg:mr-0 self-end">
+                                <img src="assets/images/2.png"
+                                    class="w-full h-auto object-cover aspect-[4/5] lg:aspect-[4/3]" alt="Decoration">
+                            </div>
+
+                            <!-- Image 2 (Removed thick white border) -->
+                            <div
+                                class="lg:col-span-1 w-[38%] lg:w-full z-20 transform scale-105 lg:scale-100 transition-transform duration-500 shadow-xl lg:shadow-md collage-frame">
+                                <img src="assets/images/1.png"
+                                    class="w-full h-auto object-cover aspect-[4/5] lg:aspect-[4/5]" alt="Daily Moment">
+                                <div
+                                    class="hidden lg:block barcode absolute bottom-2 right-2 text-stone-300 transform scale-50 opacity-70">
+                                    <span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+
+                            <!-- Image 3 (Moved to left on Mobile, Centered on Desktop) -->
+                            <div
+                                class="lg:col-span-2 w-[36%] lg:w-[65%] lg:mx-auto z-10 transform max-md:translate-y-4 lg:rotate-[3deg] group hover:-translate-y-2 transition-transform duration-500 shadow-md collage-frame -ml-2 lg:-mt-[5%] opacity-95">
+                                <img src="assets/images/3.png"
+                                    class="w-full h-auto object-cover aspect-[4/5] lg:aspect-square" alt="Interior">
+                                <div
+                                    class="hidden lg:flex absolute inset-0 bg-accent/20 flex-col justify-center items-center p-2 text-center opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:bg-accent/40 backdrop-blur-[1px]">
+                                    <h4
+                                        class="font-serif text-xs font-bold font-en uppercase italic tracking-widest text-white drop-shadow">
+                                        Topics</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <svg class="path-deco bottom-0 left-0 w-full h-40 text-accent/10" viewBox="0 0 1000 100"
+                preserveAspectRatio="none">
+                <path d="M0,80 Q250,20 500,80 T1000,80" fill="none" stroke="currentColor" stroke-width="1"
+                    stroke-dasharray="4 8" />
+            </svg>
+        </section>
+
+        <!-- New Services Section (4 blocks) -->
+        <section id="services" class="py-32 bg-white relative overflow-hidden z-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-20 reveal">
+                    <span class="font-en italic text-accent text-xl tracking-[0.2em] font-bold block mb-4">Other
+                        Services</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-extrabold text-stone-900">螟壼ｽｩ縺ｪ繧ｷ繝ｼ繝ｳ縺ｧ縲・br
+                            class="md:hidden">繝励Ο縺ｮ蜻ｳ繧偵・/h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- 縺雁ｼ∝ｽ薙・豕ｨ譁・-->
+                    <a href="bento_delivery.html"
+                        class="block bg-[#FAF7F2] p-10 border border-stone-100 shadow-sm relative group reveal hover:-translate-y-2 transition-transform duration-500 flex flex-col justify-between">
+                        <div
+                            class="absolute -right-4 -top-4 text-accent font-en italic text-9xl opacity-5 select-none transition-transform group-hover:scale-110">
+                            1</div>
+                        <div>
+                            <h4
+                                class="text-xl md:text-2xl font-serif font-bold mb-4 tracking-wider text-stone-800 border-b border-stone-200 pb-4 group-hover:text-accent transition-colors flex flex-wrap items-center gap-x-6 gap-y-3">
+                                <span class="flex-1 min-w-[50%]">縺雁ｼ∝ｽ薙・縺疲ｳｨ譁・/span>
+                                <span
+                                    class="ml-auto mt-auto text-[10px] border border-accent text-accent px-3 py-1 rounded-sm tracking-widest whitespace-nowrap font-medium">隧ｳ邏ｰ繧定ｦ九ｋ</span>
+                            </h4>
+                            <p class="text-sm opacity-80 leading-loose mb-2">
+                                莨夊ｭｰ逕ｨ繧・｡御ｺ九＃縺ｨ縺ｫ縺ｴ縺｣縺溘ｊ縺ｪ濶ｲ魄ｮ繧・°縺ｪ迚ｹ陬ｽ縺雁ｼ∝ｽ薙・荳・・莉･荳翫・縺疲ｳｨ譁・〒驟埼＃繧ょ庄閭ｽ縺ｧ縺吶・
+                            </p>
+                        </div>
+                    </a>
+
+                    <!-- 繧ｱ繝ｼ繧ｿ繝ｪ繝ｳ繧ｰ・乗侭逅・ｻ倅ｼ夊ｭｰ -->
+                    <a href="catering_meetings.html"
+                        class="block bg-[#FAF7F2] p-10 border border-stone-100 shadow-sm relative group reveal delay-100 lg:delay-200 hover:-translate-y-2 transition-transform duration-500 flex flex-col justify-between">
+                        <div
+                            class="absolute -right-4 -top-4 text-accent font-en italic text-9xl opacity-5 select-none transition-transform group-hover:scale-110">
+                            2</div>
+                        <div>
+                            <h4
+                                class="text-xl md:text-2xl font-serif font-bold mb-4 tracking-wider text-stone-800 border-b border-stone-200 pb-4 group-hover:text-accent transition-colors flex flex-wrap items-center gap-x-6 gap-y-3">
+                                <span class="flex-1 min-w-[50%]">繧ｱ繝ｼ繧ｿ繝ｪ繝ｳ繧ｰ繝ｻ譁咏炊莉倥″莨夊ｭｰ</span>
+                                <span
+                                    class="ml-auto mt-auto text-[10px] border border-accent text-accent px-3 py-1 rounded-sm tracking-widest whitespace-nowrap font-medium">隧ｳ邏ｰ繧定ｦ九ｋ</span>
+                            </h4>
+                            <p class="text-sm opacity-80 leading-loose mb-2">
+                                縺薙□繧上ｊ縺ｮ邏譚舌〒菴懊ｋ蝨ｧ蛟堤噪縺ｫ鄒主袖縺励＞繧ｱ繝ｼ繧ｿ繝ｪ繝ｳ繧ｰ縺ｨ縲∵怏諢冗ｾｩ縺ｪ譎る俣縺碁℃縺斐○繧九→隧募愛縺ｮ縲梧侭逅・ｻ倥″莨夊ｭｰ縲阪・
+                            </p>
+                        </div>
+                    </a>
+
+                    <!-- 蜃ｺ蠑ｵ譁咏炊 -->
+                    <a href="chef_outbound.html"
+                        class="block bg-[#FAF7F2] p-10 border border-stone-100 shadow-sm relative group reveal delay-200 lg:delay-400 hover:-translate-y-2 transition-transform duration-500 flex flex-col justify-between">
+                        <div
+                            class="absolute -right-4 -top-4 text-accent font-en italic text-9xl opacity-5 select-none transition-transform group-hover:scale-110">
+                            3</div>
+                        <div>
+                            <h4
+                                class="text-xl md:text-2xl font-serif font-bold mb-4 tracking-wider text-stone-800 border-b border-stone-200 pb-4 group-hover:text-accent transition-colors flex flex-wrap items-center gap-x-6 gap-y-3">
+                                <span class="flex-1 min-w-[50%]">蜃ｺ蠑ｵ譁咏炊</span>
+                                <span
+                                    class="ml-auto mt-auto text-[10px] border border-accent text-accent px-3 py-1 rounded-sm tracking-widest whitespace-nowrap font-medium">隧ｳ邏ｰ繧定ｦ九ｋ</span>
+                            </h4>
+                            <p class="text-sm opacity-80 leading-loose mb-2">
+                                繧ｷ繧ｧ繝輔′逶ｴ謗･莨ｺ縺・√◎縺ｮ蝣ｴ繧堤屁繧贋ｸ翫￡繧九ヱ繝輔か繝ｼ繝槭Φ繧ｹ縺ｨ蜈ｱ縺ｫ譛ｬ譬ｼ繧､繧ｿ繝ｪ繧｢繝ｳ繧定ｪｿ逅・・謠蝉ｾ帙☆繧狗音蛻･縺ｪ菴馴ｨ薙・
+                            </p>
+                        </div>
+                    </a>
+
+                    <!-- 蛯ｬ莠玖ｲｩ螢ｲ -->
+                    <a href="event_sales.html"
+                        class="block bg-[#FAF7F2] p-10 border border-stone-100 shadow-sm relative group reveal delay-300 lg:delay-500 hover:-translate-y-2 transition-transform duration-500 flex flex-col justify-between">
+                        <div
+                            class="absolute -right-4 -top-4 text-accent font-en italic text-9xl opacity-5 select-none transition-transform group-hover:scale-110">
+                            4</div>
+                        <div>
+                            <h4
+                                class="text-xl md:text-2xl font-serif font-bold mb-4 tracking-wider text-stone-800 border-b border-stone-200 pb-4 group-hover:text-accent transition-colors flex flex-wrap items-center gap-x-6 gap-y-3">
+                                <span class="flex-1 min-w-[50%]">蛯ｬ莠玖ｲｩ螢ｲ</span>
+                                <span
+                                    class="ml-auto mt-auto text-[10px] border border-accent text-accent px-3 py-1 rounded-sm tracking-widest whitespace-nowrap font-medium">隧ｳ邏ｰ繧定ｦ九ｋ</span>
+                            </h4>
+                            <p class="text-sm opacity-80 leading-loose mb-2">
+                                蜈ｨ蝗ｽ蜷・慍縺ｮ逋ｾ雋ｨ蠎励ｄ繧､繝吶Φ繝井ｼ壼ｴ縺ｫ縺ｦ縲∝宍驕ｸ邏譚舌〒菴懊ｋ縺薙□繧上ｊ縺ｮ謨ｰ縲・ｒ譛滄俣髯仙ｮ壹〒逶ｴ謗･縺雁ｱ翫￠縺・◆縺励∪縺吶・
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Online Shop -->
+        <section id="online-shop" class="py-48 bg-[#2A2624] overflow-hidden relative">
+            <!-- Technical Dashed Line -->
+            <div class="absolute inset-x-0 top-12 h-[1px] border-t border-dashed border-white/10"></div>
+            <div class="absolute inset-x-0 bottom-12 h-[1px] border-t border-dashed border-white/10"></div>
+
+            <div
+                class="absolute top-1/2 left-0 -translate-y-1/2 text-[20vw] font-en font-bold italic text-white/[0.02] select-none whitespace-nowrap">
+                Exquisite Delivery</div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl mx-auto text-center mb-24 reveal">
+                    <h2
+                        class="text-white text-5xl md:text-7xl font-serif font-extrabold mb-10 uppercase italic tracking-tighter">
+                        Online Shop</h2>
+                    <p class="text-stone-400 font-serif text-lg md:text-xl leading-relaxed font-medium">
+                        閨ｷ莠ｺ縺ｮ辟ｼ縺咲ｫ九※縲∵Φ縺・・縺薙ｂ縺｣縺滉ｸ逧ｿ繧偵・br>蝓朱區縺ｮ繧｢繝医Μ繧ｨ縺九ｉ縲∝・蝗ｽ縺ｮ縺碑・螳・∈縺雁ｱ翫￠縺励∪縺吶・/p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+                    <!-- Item 1: Torte -->
+                    <div
+                        class="bg-white/[0.03] border border-white/10 p-12 reveal group hover:bg-white/[0.06] transition-all duration-1000 relative">
+                        <!-- Luxury Decor -->
+                        <div class="luxury-stamp absolute -top-10 -right-6 rotate-12 z-20">
+                            <div>LIMITED<br>EDITION</div>
+                        </div>
+
+                        <a href="https://torte-no-sanpo.com/" target="_blank" class="block">
+                            <div
+                                class="aspect-video collage-frame mb-10 -rotate-1 group-hover:rotate-0 transition-transform relative">
+                                <img src="assets/images/%E7%B9%9D%E5%8C%BB%CE%9D%E7%B9%9D%E3%83%BB.png"
+                                    class="w-full h-full object-cover" alt="Torte No Sanpo">
+                                <div class="gold-frame"></div> <!-- Gold Frame -->
+                            </div>
+                        </a>
+                        <h3
+                            class="text-white text-3xl font-serif font-bold mb-6 font-en italic uppercase tracking-wider relative z-10">
+                            繝医Ν繝・・縺輔ｓ縺ｽ</h3>
+                        <p class="text-stone-400 text-sm mb-12 leading-loose">
+                            雍医ｊ迚ｩ縺ｫ霑ｷ縺｣縺溘ｉ縺薙ｌ縲ょｽ灘ｺ励・莠ｺ豌励Λ繧､繝ｳ繝翫ャ繝励ｒ隧ｰ繧∝粋繧上○縺溘∝ｮ晉浹邂ｱ縺ｮ繧医≧縺ｪ縲後♀縺ｾ縺九○繧ｿ繝ｫ繝・6蛟九そ繝・ヨ縲阪ゅ♀荳冶ｩｱ縺ｫ縺ｪ縺｣縺滓婿縺ｸ縺ｮ繧ｮ繝輔ヨ繧・∬・蛻・∈縺ｮ縺碑､堤ｾ弱↓縺・°縺後〒縺励ｇ縺・°縲・/p>
+                        <!-- Button Updated: Solid by default -->
+                        <a href="https://item.rakuten.co.jp/prugna/torte_select16/" target="_blank"
+                            class="inline-block bg-[#D4AF37] text-black px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-white hover:text-[#D4AF37] transition-all rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.4)] border border-[#D4AF37]">Visit
+                            Shop</a>
+                    </div>
+
+                    <!-- Item 2: Prugna -->
+                    <div
+                        class="bg-white/[0.03] border border-white/10 p-12 reveal delay-300 group hover:bg-white/[0.06] transition-all duration-1000 relative">
+                        <!-- Luxury Decor -->
+                        <div
+                            class="luxury-stamp absolute -bottom-10 -left-6 rotate-[-12deg] z-20 text-white border-white">
+                            <div>WORLD<br>CLASS</div>
+                        </div>
+                        <div
+                            class="hero-text-pattern top-[10%] right-[-20%] text-[8rem] opacity-[0.05] leading-none z-0">
+                            Prugna
+                        </div>
+
+                        <a href="https://prugna-pane.com/product/toast/" target="_blank" class="block">
+                            <div
+                                class="aspect-video collage-frame mb-10 rotate-1 group-hover:rotate-0 transition-transform relative">
+                                <img src="assets/images/%E7%B9%9D%E5%8A%B1%CE%9D%E7%B9%9D%EF%BD%B3%E7%B9%A7%E3%83%BB%EF%BD%A3%E6%BA%98%E3%83%B1%E7%B9%9D%EF%BD%B32.jpg"
+                                    class="w-full h-full object-cover" alt="Prugna Pane Online">
+                                <div class="gold-frame"></div> <!-- Gold Frame -->
+                            </div>
+                        </a>
+                        <h3
+                            class="text-white text-3xl font-serif font-bold mb-6 font-en italic uppercase tracking-wider">
+                            鬮倡ｴ夐｣溘ヱ繝ｳ蟆る摩蠎・br>繝励Ν繝ｳ繝九Ε</h3>
+                        <p class="text-stone-400 text-sm mb-12 leading-loose">
+                            縲碁∈縺ｹ繧九ヨ繝ｼ繧ｹ繝亥ｰら畑荳譫壼・繧雁・蜃埼｣溘ヱ繝ｳ縲阪ゅざ繝ｫ繧ｴ繝ｳ繧ｾ繝ｼ繝ｩ縺ｨ縺ｯ縺｡縺ｿ縺､繧・√ラ繝ｩ繧､繝医・繝医↑縺ｩ縲・5遞ｮ鬘槭・蛟区ｧ雎翫°縺ｪ繝輔Ξ繝ｼ繝舌・縺九ｉ縺雁･ｽ縺阪↑繧ゅ・繧偵よ律蟶ｸ繧貞ｰ代＠雍・ｲ｢縺ｫ縺吶ｋ迚ｹ蛻･縺ｪ荳譫壹ｒ縺泌ｮｶ蠎ｭ縺ｧ縲・
+                        </p>
+                        <!-- Button Updated: Solid by default -->
+                        <a href="https://prugna-pane.com/product/toast/" target="_blank"
+                            class="inline-block bg-[#D4AF37] text-black px-12 py-4 text-[9px] font-bold tracking-[0.4em] uppercase hover:bg-white hover:text-[#D4AF37] transition-all rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.4)] border border-[#D4AF37]">Visit
+                            Shop</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- YouTube Section (Moved to Bottom) -->
+        <section id="youtube" class="py-32 bg-stone-50 relative overflow-hidden z-20">
+            <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white to-transparent opacity-50"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20 reveal">
+                    <div class="shrink-0 relative">
+                        <div class="absolute -inset-4 rounded-lg border-2 border-dashed border-accent/20">
+                        </div>
+                        <img src="assets/images/%E8%AD%9A%EF%BD%BE%E8%AD%9B%EF%BD%AC%E7%B8%BA%E8%BC%94%EF%BD%93.png"
+                            alt="Matsumoto Makoto"
+                            class="w-48 h-48 md:w-64 md:h-64 object-cover object-top rounded-lg border-8 border-white shadow-2xl relative z-10 transition-transform hover:-translate-y-2 duration-500">
+                        <div
+                            class="absolute -bottom-6 -right-6 bg-[#FF0000] text-white w-16 h-16 rounded-lg flex items-center justify-center shadow-lg z-20">
+                            <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left text-stone-800">
+                        <span class="text-accent text-sm font-bold tracking-[0.2em] font-en mb-2 block">窶・YOUTUBE
+                            CHANNEL</span>
+                        <h3 class="text-3xl md:text-5xl font-serif font-extrabold mb-6 leading-tight tracking-wide">
+                            譚ｾ譛ｬ逵溘・<br>縲碁｣溷酷繧ｸ繝｣繝ｼ繝翫Ν縲・
+                        </h3>
+                        <p class="text-base text-stone-500 mb-10 leading-relaxed max-w-lg">
+                            繝励Ο縺ｮ謚陦薙°繧峨√＃螳ｶ蠎ｭ縺ｧ繧ら悄莨ｼ縺ｧ縺阪ｋ繧｢繧､繝・い縲√◎縺励※蠎苓・縺ｮ闊槫床陬上∪縺ｧ縲る｣溷酷繧偵ｂ縺｣縺ｨ雎翫°縺ｫ縺吶ｋ繝偵Φ繝医ｒ蜍慕判縺ｧ螳壽悄逧・↓逋ｺ菫｡縺励※縺・∪縺吶ゅ●縺ｲ繝√Ε繝ｳ繝阪Ν逋ｻ骭ｲ繧偵♀鬘倥＞縺励∪縺吶・
+                        </p>
+                        <a href="https://www.youtube.com/@shokutaku_journal" target="_blank"
+                            class="inline-block bg-[#282828] text-white px-10 py-4 text-xs font-bold tracking-[0.2em] hover:bg-accent transition-colors shadow-xl uppercase">
+                            繝√Ε繝ｳ繝阪Ν繧定ｦｳ繧・笆ｶ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1C1A19] text-white/40 py-40 px-6 md:px-12 relative overflow-hidden">
+        <div class="container mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+
+                <div class="lg:col-span-5">
+                    <h2 class="text-white text-4xl font-serif font-extrabold tracking-[0.2em] mb-12">Simple Plan</h2>
+                    <p class="text-sm leading-[2.6] max-w-sm mb-16 opacity-70 font-serif font-medium">
+                        莠ｬ驛ｽ蠎懷沁髯ｽ蟶ゅｒ荳ｭ蠢・↓縲・｣溘ｒ騾壹§縺溯ｱ翫°縺ｪ繝ｩ繧､繝輔せ繧ｿ繧､繝ｫ繧呈署譯医りｪ螳溘↑繧ゅ・縺･縺上ｊ縺ｨ縲∝慍蝓溘∈縺ｮ豺ｱ縺・・縺九ｉ蟋九∪繧翫∪縺吶・
+                    </p>
+                    <div class="flex gap-12 items-center text-white/60">
+                        <a href="#"
+                            class="text-[10px] tracking-[0.4em] font-bold uppercase hover:text-accent transition-all italic">Instagram</a>
+                        <a href="#"
+                            class="text-[10px] tracking-[0.4em] font-bold uppercase hover:text-accent transition-all italic">Facebook</a>
+                    </div>
+                </div>
+
+                <div
+                    class="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-16 text-[11px] tracking-[0.4em] font-bold uppercase text-white/80">
+                    <div class="space-y-12">
+                        <h4
+                            class="text-accent text-[10px] border-b border-accent/20 pb-4 tracking-[0.5em] font-en uppercase italic">
+                            Menu</h4>
+                        <ul class="space-y-6 text-[11px] tracking-widest font-sans font-medium">
+                            <li><a href="#philosophy"
+                                    class="hover:text-accent transition-all block w-full text-left">莨∵･ｭ逅・ｿｵ</a></li>
+                            <li><a href="#brands"
+                                    class="hover:text-accent transition-all block w-full text-left">螻暮幕繝悶Λ繝ｳ繝・/a></li>
+                            <li><a href="#news"
+                                    class="hover:text-accent transition-all block w-full text-left">縺顔衍繧峨○繝ｻ繝医ヴ繝・け繧ｹ</a></li>
+                            <li><a href="#services"
+                                    class="hover:text-accent transition-all block w-full text-left">縺昴・莉悶・繧ｵ繝ｼ繝薙せ</a></li>
+                            <li><a href="#shop"
+                                    class="hover:text-accent transition-all block w-full text-left">繧ｪ繝ｳ繝ｩ繧､繝ｳ繧ｷ繝ｧ繝・・</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-12">
+                        <h4
+                            class="text-accent text-[10px] border-b border-accent/20 pb-4 tracking-[0.5em] font-en uppercase italic">
+                            Store</h4>
+                        <ul class="space-y-6">
+                            <li><a href="https://torte-no-sanpo.com/" target="_blank"
+                                    class="hover:text-accent transition-all">Torte No Sanpo</a></li>
+                            <li><a href="https://prugna-pane.com/" target="_blank"
+                                    class="hover:text-accent transition-all">Prugna Pane</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-12 md:col-span-1 col-span-2">
+                        <h4
+                            class="text-accent text-[10px] border-b border-accent/20 pb-4 tracking-[0.5em] font-en uppercase italic">
+                            Office</h4>
+                        <p class="text-[10px] leading-relaxed lowercase opacity-50 font-normal">
+                            kyoto, joyo-city,<br>
+                            terada midozaka 15-177<br>
+                            simple plan co., ltd.<br>
+                            0774-XX-XXXX
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-40 pt-16 border-t border-white/5 flex justify-between items-center flex-wrap gap-12">
+                <p class="text-[9px] tracking-[0.5em] uppercase text-white/30">&copy; SIMPLE PLAN CO., LTD. ALL RIGHTS
+                    RESERVED.</p>
+                <div class="w-32 h-32 relative hidden md:flex items-center justify-center opacity-[0.15]">
+                    <svg class="w-full h-full animate-[spin_60s_linear_infinite]" viewBox="0 0 100 100">
+                        <path id="footerPathCircle" d="M50,12 A38,38 0 1,1 49.9,12" fill="none" />
+                        <text class="text-[5.5px] tracking-[1.1em] font-en uppercase fill-white italic">
+                            <textPath href="#footerPathCircle">Artisan Excellence 窶・Elegance in Food 窶・Joyo 窶・
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div
+            class="absolute bottom-0 right-0 text-[25vw] font-serif text-white opacity-[0.015] pointer-events-none select-none italic font-extrabold">
+            Elegance</div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('page-' + pageId);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setTimeout(initAnimations, 100);
+            }
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const line1 = document.querySelector('.menu-line-1');
+            const line2 = document.querySelector('.menu-line-2');
+            if (menu.classList.contains('opacity-0')) {
+                menu.classList.remove('opacity-0', 'pointer-events-none');
+                line1.classList.add('rotate-45', 'translate-y-[8px]');
+                line2.classList.replace('w-5', 'w-8');
+                line2.classList.add('-rotate-45', '-translate-y-[1px]');
+            } else {
+                menu.classList.add('opacity-0', 'pointer-events-none');
+                line1.classList.remove('rotate-45', 'translate-y-[8px]');
+                line2.classList.remove('-rotate-45', '-translate-y-[1px]');
+                line2.classList.replace('w-8', 'w-5');
+            }
+        }
+
+        function initAnimations() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            reveals.forEach(el => observer.observe(el));
+        }
+        window.onload = initAnimations;
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 80) {
+                header.classList.add('bg-white/95', 'py-4', 'shadow-xl', 'backdrop-blur-md');
+                header.classList.remove('py-8');
+            } else {
+                header.classList.remove('bg-white/95', 'py-4', 'shadow-xl', 'backdrop-blur-md');
+                header.classList.add('py-8');
+            }
+        });
+        window.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 25;
+            const y = (e.clientY / window.innerHeight - 0.5) * 25;
+            document.querySelectorAll('.bg-deco-svg').forEach((svg, i) => {
+                const speed = (i + 1) * 0.4;
+                svg.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
+</body>
+
+</html>
