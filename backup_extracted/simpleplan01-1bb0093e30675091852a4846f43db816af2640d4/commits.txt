@@ -1,0 +1,10 @@
+4af59f1 Update vegetable field image to a verified vast green field
+3cba195 Update vegetable field image to a vast green lettuce field
+09c86c2 Update vegetable field image to a wider green field shot
+8b5df58 Use locally downloaded vegetable field image to ensure visibility
+d711446 Fix image path to remote URL
+391f18f Download vegetable field image locally and update reference
+bc68bae Update vegetable field image to a fresher version
+9180947 Restore ce637b6 design and apply minimal image/style fixes
+4b8cb59 Fix online shop hover, restore western cafe image, and update to vegetable field image
+ce637b6 Fix journal image and online shop styling, add deployment config
