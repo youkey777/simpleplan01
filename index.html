@@ -500,7 +500,7 @@
     </style>
 
     <header
-        class="fixed top-0 left-0 w-full z-50 px-4 py-4 md:px-12 md:py-8 flex justify-between items-center transition-all duration-700"
+        class="fixed top-0 left-0 w-full z-50 px-2 py-4 md:px-12 md:py-5 flex justify-between items-center transition-all duration-700"
         id="main-header">
         <div class="flex flex-col cursor-pointer group" onclick="showPage('top')">
             <img src="assets/images/logo1.png" alt="Simple Plan"
@@ -535,6 +535,8 @@
 
     <div id="mobile-menu"
         class="fixed inset-0 bg-white/95 backdrop-blur-md z-50 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500">
+        <!-- Close button -->
+        <button onclick="toggleMenu()" class="absolute top-5 right-5 w-11 h-11 flex items-center justify-center text-stone-400 hover:text-stone-800 transition-colors text-3xl leading-none font-en font-light">&times;</button>
         <div class="flex flex-col gap-10 text-center text-lg tracking-widest font-serif">
             <button onclick="showPage('about'); toggleMenu()" class="hover:text-accent">企業理念</button>
             <button onclick="showPage('brands'); toggleMenu()" class="hover:text-accent">展開ブランド</button>
@@ -561,7 +563,7 @@
                 </div>
 
                 <div
-                    class="col-span-12 md:col-start-6 md:col-span-7 relative h-[50vh] md:h-[90vh] order-1 md:order-2 flex flex-row items-center justify-center md:grid md:grid-cols-12 md:grid-rows-12 md:gap-0 mt-8 md:mt-0">
+                    class="col-span-12 md:col-start-6 md:col-span-7 relative h-[45vh] md:h-[90vh] order-1 md:order-2 flex flex-row items-center justify-center md:grid md:grid-cols-12 md:grid-rows-12 md:gap-0 mt-8 md:mt-0">
 
                     <!-- Image 1 (Top Left) -->
                     <div
@@ -618,7 +620,7 @@
             <div class="container mx-auto px-6 max-w-5xl relative z-10 text-center md:text-left">
                 <div class="flex flex-col md:flex-row gap-16 items-center">
                     <div class="w-full md:w-1/2 reveal">
-                        <div class="flex items-center justify-center md:justify-start gap-4 mb-10">
+                        <div class="flex items-center justify-start gap-4 mb-10">
                             <span class="w-10 h-[1px] bg-accent"></span>
                             <span
                                 class="font-en italic text-accent text-xl font-bold tracking-[0.2em]">Philosophy</span>
@@ -630,7 +632,7 @@
                             「食」という結びつきを超えて——Simple Planは京都・城陽市から、本格イタリアンレストラン・お弁当宅配・ケータリング・出張料理・催事販売まで、多彩な形でお客様の大切な時間に関わり続けてきました。地元城陽の旬の食材と職人の手仕事が、私たちの変わらぬこだわりです。
                         </p>
                     </div>
-                    <div class="w-[88%] md:w-1/2 mx-auto md:mx-0 relative reveal delay-300 px-4 md:px-0">
+                    <div class="w-full md:w-1/2 mx-auto md:mx-0 relative reveal delay-300 px-4 md:px-0">
                         <div class="collage-frame rotate-[-2deg] shadow-lg">
                             <div class="aspect-[4/3] overflow-hidden">
                                 <img src="assets/images/414431568_18301668553127847_8891418241376474849_n.jpg"
