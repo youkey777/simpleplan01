@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osteria Lo Stuzzichinoがグランドオープンしました | Simple Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: { 50: '#fafaf9', 100: '#f5f5f4', 200: '#e7e5e4', 300: '#d6d3d1', 800: '#292524', 900: '#1c1917' },
+                        accent: '#8B7355',
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif JP"', 'serif'],
+                        en: ['"Cormorant Garamond"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAF7F2;
+            color: #292524;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <!-- Header -->
+    <header class="w-full z-50 px-6 py-8 md:px-12 flex justify-between items-center bg-white/95 backdrop-blur-md shadow-sm border-b border-stone-100">
+        <a href="index.html" class="flex flex-col group block">
+            <img src="assets/images/logo1.png" alt="Simple Plan"
+                class="h-9 md:h-11 w-auto object-contain group-hover:opacity-75 transition-opacity">
+            <div class="flex items-center gap-3 mt-1">
+                <span class="h-[1px] w-6 bg-accent opacity-60"></span>
+                <span class="text-[8px] md:text-[9px] tracking-[0.5em] font-en uppercase opacity-60 italic text-stone-900">Artisan & Feminine</span>
+            </div>
+        </a>
+        <a href="index.html"
+            class="text-xs md:text-sm font-serif tracking-widest hover:text-accent transition-colors underline underline-offset-4 decoration-stone-300">←
+            ホームに戻る</a>
+    </header>
+
+    <main class="pt-24 pb-40 min-h-[80vh] relative">
+        <div class="container mx-auto px-6 max-w-3xl">
+
+            <!-- Article header -->
+            <div class="mb-16 pt-8">
+                <time class="font-en text-stone-400 text-[10px] tracking-[0.4em] font-bold block mb-6">2026.03.03</time>
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="h-[1px] w-10 bg-accent opacity-60"></span>
+                    <span class="font-en italic text-accent text-sm tracking-[0.2em] font-bold uppercase">News</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-serif font-extrabold text-stone-900 leading-[1.5] mb-8">
+                    Osteria Lo Stuzzichinoが<br class="md:hidden">グランドオープンしました。
+                </h1>
+                <div class="w-16 h-[2px] bg-accent"></div>
+            </div>
+
+            <!-- Article body -->
+            <div class="bg-white p-10 md:p-16 shadow-sm border border-stone-100">
+                <p class="text-base md:text-lg leading-[2.4] text-stone-600 mb-8">
+                    「Prugna+Cafe」と「ILFICO」の歴史を受け継ぎ、新たに「Osteria Lo Stuzzichino」としてグランドオープンしました。城陽の旬の食材を活かした本格イタリアンコースなどをご用意し、皆様のお越しを心よりお待ちしております。
+                </p>
+                <p class="text-base md:text-lg leading-[2.4] text-stone-600">
+                    ランチとディナーでの営業に加え、自家製パンと合わせた新しいスタイルをご堪能ください。大切な方との語らいの場として、ぜひ当店をご利用くださいませ。
+                </p>
+            </div>
+
+            <!-- Back link -->
+            <div class="mt-16 text-center">
+                <a href="index.html"
+                    class="inline-block font-serif text-sm tracking-widest hover:text-accent transition-colors underline underline-offset-4 decoration-stone-300">
+                    ← ホームに戻る
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1C1A19] text-white/40 py-16 px-6 text-center border-t-4 border-accent">
+        <p class="text-[9px] tracking-[0.5em] uppercase font-en">&copy; SIMPLE PLAN CO., LTD. ALL RIGHTS RESERVED.</p>
+    </footer>
+</body>
+
+</html>
