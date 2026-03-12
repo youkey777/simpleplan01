@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ページが見つかりません | 株式会社Simple Plan</title>
+    <meta http-equiv="refresh" content="5;url=https://simple-plan.co.jp/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-accent: #B89F8E;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #FAF7F2;
+            color: #3A3532;
+        }
+        .font-serif { font-family: 'Shippori Mincho', serif; }
+        .text-accent { color: var(--color-accent); }
+        .border-accent { border-color: var(--color-accent); }
+    </style>
+    <script>
+        // URLに応じて適切なページへリダイレクト
+        (function() {
+            var path = window.location.pathname;
+            var redirectMap = {
+                '/about': '/',
+                '/about/': '/',
+                '/prugna-pane': '/',
+                '/prugna-pane/': '/',
+                '/prugna-cafe': '/',
+                '/prugna-cafe/': '/',
+                '/gallery': '/',
+                '/gallery/': '/',
+                '/blog': '/',
+                '/blog/': '/',
+                '/category/simple-plan': '/',
+                '/category/simple-plan/': '/',
+            };
+            var dest = redirectMap[path];
+            if (dest) {
+                window.location.replace('https://simple-plan.co.jp' + dest);
+            }
+        })();
+
+        // カウントダウン表示
+        window.onload = function() {
+            var count = 5;
+            var el = document.getElementById('countdown');
+            var timer = setInterval(function() {
+                count--;
+                if (el) el.textContent = count;
+                if (count <= 0) {
+                    clearInterval(timer);
+                    window.location.href = 'https://simple-plan.co.jp/';
+                }
+            }, 1000);
+        };
+    </script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-6">
+    <div class="text-center max-w-lg">
+        <p class="font-serif text-accent text-6xl font-bold mb-6 italic">404</p>
+        <h1 class="font-serif text-2xl md:text-3xl font-bold mb-4 tracking-wide text-stone-800">
+            ページが見つかりません
+        </h1>
+        <div class="w-12 h-[1px] bg-stone-300 mx-auto mb-8"></div>
+        <p class="text-stone-600 leading-relaxed mb-2">
+            お探しのページは移転または削除されました。
+        </p>
+        <p class="text-stone-500 text-sm mb-10">
+            <span id="countdown">5</span> 秒後にトップページへ自動的に移動します。
+        </p>
+        <a href="https://simple-plan.co.jp/"
+            class="inline-block border border-stone-400 text-stone-700 px-8 py-3 text-sm tracking-widest hover:bg-stone-800 hover:text-white hover:border-stone-800 transition-all duration-300">
+            今すぐトップページへ
+        </a>
+    </div>
+</body>
+
+</html>
