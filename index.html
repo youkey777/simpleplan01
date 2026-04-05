@@ -30,6 +30,7 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;700;800&display=swap"
         rel="stylesheet">
     <style>
+        html { scroll-behavior: smooth; }
         :root {
             --color-text: #3A3532;
             --color-bg: #FAF7F2;
@@ -530,14 +531,14 @@
 
         <nav class="hidden xl:flex items-center gap-14">
             <div class="flex gap-14 text-[13px] tracking-[0.2em] font-medium relative">
-                <button onclick="showPage('about')"
-                    class="hover:text-accent font-serif tracking-widest transition-all">企業理念</button>
-                <button onclick="showPage('brands')"
-                    class="hover:text-accent font-serif tracking-widest transition-all">展開ブランド</button>
-                <button onclick="showPage('news')"
-                    class="hover:text-accent font-serif tracking-widest transition-all">お知らせ・トピックス</button>
-                <button onclick="showPage('services')"
-                    class="hover:text-accent font-serif tracking-widest transition-all">その他のサービス</button>
+                <a href="#philosophy"
+                    class="hover:text-accent font-serif tracking-widest transition-all">企業理念</a>
+                <a href="#brands"
+                    class="hover:text-accent font-serif tracking-widest transition-all">展開ブランド</a>
+                <a href="#news"
+                    class="hover:text-accent font-serif tracking-widest transition-all">お知らせ・トピックス</a>
+                <a href="#services"
+                    class="hover:text-accent font-serif tracking-widest transition-all">その他のサービス</a>
                 <span class="absolute -top-5 left-1/2 -translate-x-1/2 text-accent/40 text-sm font-en italic">✧</span>
             </div>
             <button onclick="openShopOverlay()"
@@ -555,10 +556,10 @@
         <!-- Close button -->
         <button onclick="toggleMenu()" class="absolute top-5 right-5 w-11 h-11 flex items-center justify-center text-stone-400 hover:text-stone-800 transition-colors text-3xl leading-none font-en font-light">&times;</button>
         <div class="flex flex-col gap-10 text-center text-lg tracking-widest font-serif">
-            <button onclick="showPage('about'); toggleMenu()" class="hover:text-accent">企業理念</button>
-            <button onclick="showPage('brands'); toggleMenu()" class="hover:text-accent">展開ブランド</button>
-            <button onclick="showPage('news'); toggleMenu()" class="hover:text-accent">お知らせ・トピックス</button>
-            <button onclick="showPage('services'); toggleMenu()" class="hover:text-accent">その他のサービス</button>
+            <a href="#philosophy" onclick="toggleMenu()" class="hover:text-accent">企業理念</a>
+            <a href="#brands" onclick="toggleMenu()" class="hover:text-accent">展開ブランド</a>
+            <a href="#news" onclick="toggleMenu()" class="hover:text-accent">お知らせ・トピックス</a>
+            <a href="#services" onclick="toggleMenu()" class="hover:text-accent">その他のサービス</a>
             <button onclick="toggleMenu(); openShopOverlay()"
                 class="text-accent border-t border-accent/20 pt-8 mt-4 text-left">オンラインショップ</button>
         </div>
@@ -632,7 +633,7 @@
         </section>
 
         <!-- Message (Philosophy) -->
-        <section class="py-48 relative border-y border-stone-200 overflow-hidden bg-blur-glass z-10">
+        <section id="philosophy" class="py-48 relative border-y border-stone-200 overflow-hidden bg-blur-glass z-10">
             <div class="absolute top-0 right-0 w-1/4 h-full bg-accent/40 -z-10"></div>
             <div class="container mx-auto px-6 max-w-5xl relative z-10 text-center md:text-left">
                 <div class="flex flex-col md:flex-row gap-16 items-center">
@@ -666,7 +667,7 @@
         </section>
 
         <!-- OUR BRAND: 4列散布グリッド -->
-        <section class="py-48 bg-graph-paper relative overflow-hidden z-10">
+        <section id="brands" class="py-48 bg-graph-paper relative overflow-hidden z-10">
             <div class="hero-text-pattern top-20 right-[-10%] opacity-[0.05] rotate-90 origin-right">
                 GRID_SYSTEM_V.2.0
             </div>
@@ -1157,7 +1158,7 @@
                                     class="hover:text-accent transition-all block w-full text-left">お知らせ・トピックス</a></li>
                             <li><a href="#services"
                                     class="hover:text-accent transition-all block w-full text-left">その他のサービス</a></li>
-                            <li><a href="#shop"
+                            <li><a href="#online-shop"
                                     class="hover:text-accent transition-all block w-full text-left">オンラインショップ</a></li>
                         </ul>
                     </div>
