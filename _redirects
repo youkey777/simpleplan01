@@ -21,6 +21,13 @@
 /xmlrpc.php                 /  301
 /feed                       /  301
 /feed/                      /  301
+/comments/feed              /  301
+/comments/feed/             /  301
+/comments/feed/*            /  301
+/website/feed               /  301
+/website/feed/              /  301
+/website/feed/*             /  301
+/pizzeria-il-fico/*         /  301
 /category/*                 /  301
 /tag/*                      /  301
 /author/*                   /  301
