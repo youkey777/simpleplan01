@@ -1,35 +1,65 @@
-# 旧サイト（WordPress等）からのリダイレクト
+# === GSC検証失敗6件（最優先） ===
+/gallery/232/*              /  301
+/gallery/7/                 /  301
+/pizzeria-il-fico/          /  301
+/privacy-policy/            /  301
+/privacy-policy             /  301
+/gallery/3/                 /  301
+/gallery/1/                 /  301
+
+# === Gallery 個別ページ（報告済み） ===
+/gallery/4/                 /  301
+/gallery/8/                 /  301
+/gallery/33/                /  301
+
+# === 旧サイト（WordPress等）からのリダイレクト ===
 /about                      /  301
 /about/                     /  301
 /prugna-pane                /  301
 /prugna-pane/               /  301
+/prugna-pane/*              /  301
 /prugna-cafe                /  301
 /prugna-cafe/               /  301
+/prugna-cafe/*              /  301
+/prugna                     /  301
+/prugna/                    /  301
+/prugna/*                   /  301
 /gallery                    /  301
 /gallery/                   /  301
+/gallery/*                  /  301
 /gallery_category/*         /  301
 /blog                       /  301
 /blog/                      /  301
+/blog/*                     /  301
 /category/simple-plan       /  301
 /category/simple-plan/      /  301
+/category/*                 /  301
 
-# WordPress 一般的なパスパターン
+# === WordPress内部パス ===
 /wp-admin/*                 /  301
 /wp-login.php               /  301
 /wp-content/*               /  301
 /wp-includes/*              /  301
+/wp-cron.php                /  301
 /xmlrpc.php                 /  301
 /feed                       /  301
 /feed/                      /  301
 /comments/feed              /  301
 /comments/feed/             /  301
 /comments/feed/*            /  301
+
+# === 旧固定ページ・サブサイト ===
+/pizzeria-il-fico/*         /  301
+/website/                   /  301
+/website                    /  301
 /website/feed               /  301
 /website/feed/              /  301
 /website/feed/*             /  301
-/pizzeria-il-fico/*         /  301
-/category/*                 /  301
+/stop/                      /  301
+/stop                       /  301
+/matsumoto/*                /  301
+/matsumoto                  /  301
+/hello-world/               /  301
 /tag/*                      /  301
 /author/*                   /  301
 /page/*                     /  301
-/blog/*                     /  301

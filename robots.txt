@@ -1,4 +1,22 @@
 User-agent: *
 Allow: /
 
+# 旧WordPressパスのクロールをブロック
+Disallow: /wp-content/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-login.php
+Disallow: /wp-cron.php
+Disallow: /xmlrpc.php
+
+# 存在しない旧パス
+Disallow: /gallery/
+Disallow: /gallery_category/
+Disallow: /category/
+Disallow: /prugna-cafe/
+Disallow: /prugna-pane/
+Disallow: /prugna/
+Disallow: /pizzeria-il-fico/
+Disallow: /matsumoto/
+
 Sitemap: https://simple-plan.co.jp/sitemap.xml
